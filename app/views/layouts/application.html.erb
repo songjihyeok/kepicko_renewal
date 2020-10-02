@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kepicko</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  	<script src="js/common.js"></script>
+	  <script type="text/javascript" src="imagerotator/html/js/imagerotator.js"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      $(function(){
+        var $urlCopy = $('.url_copy');
+        $urlCopy.each(function(){
+          var _this = $(this);
+          var url = _this.text();
+          var target = $(this).parents('.ui_content').hasClass('web') ? 'blank' : '';
+          $(this).attr({
+            'href' : url,
+            'target' : target
+          });
+        });
+        genRowspan('.web .ui_table th');
+        genRowspan('.web .ui_table .category');
+        genRowspan('.mo .ui_table .category');
+        $('.ui_table').each(function () {
+          if (!$(this).parent('.table_scroll').length) $(this).wrap('<div class="table_scroll" />');
+        });
+
+        $(window).bind('load resize', function(){
+          $('.ui_tab li').removeClass('active');
+          if ( $(this).width() <= 750 ) {
+            //mobile
+            $('.ui_tab li').eq(1).addClass('active');
+          } else {
+            //pc
+            $('.ui_tab li').eq(0).addClass('active');
+          }
+          tabShow('.ui_tab' ,'.ui_content');
+        });
+        $('.ui_tab li a').click(function(e){
+          tabShow('.ui_tab' ,'.ui_content');
+          e.preventDefault();
+        });
+      });
+
+      function genRowspan(className){
+        $(className).each(function() {
+          var rows = $(className + ':contains("' + $(this).text() + '")');
+          if (rows.length > 1) {
+            rows.eq(0).attr('rowspan', rows.length);
+            rows.not(':eq(0)').remove();
+          }
+        });
+      }
+      function tabShow(tab,content,showNum){
+        var $tab = $(tab);
+        var tabList = $tab.find('li');
+        var active = $tab.find('li.active');
+        var $content = $(content);
+        var showNum = active.length ? active.index() : 0;
+        contentShow(showNum);
+
+        $tab.find('li a').click(function(){
+          var _this = $(this);
+          var index = _this.parent('li').index();
+          contentShow(index);
+        });
+
+        function contentShow(showNum){
+          tabList.not(':eq('+ showNum+ ')').removeClass('active');
+          tabList.eq(showNum).addClass('active');
+          $content.not(':eq('+ showNum+ ')').hide();
+          $content.eq(showNum).show();
+        }
+      }
+    var rotator = WR360.ImageRotator.Create('wr360PlayerId');
+  </script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

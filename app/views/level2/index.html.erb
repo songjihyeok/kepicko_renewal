@@ -1,0 +1,53 @@
+<%= render "shared/header.html.erb", title: "level 2"%>
+
+<header class="header">
+	<h1 class="logo"><a href="/level0.html"><img src="images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
+		<ul>
+			<li><a href="level0">Lv 0</a></li>
+      <li><a href="level1">Lv 1</a></li>
+      <li class="on"><a href="level2">Lv 2</a></li>
+      <li><a href="level3">Lv 3</a></li>
+      <li><a href="level4">Lv 4</a></li>
+      <li><a href="level5">Lv 5</a></li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-5">
+	<header class="content-title">
+		<h1><%= @level2.main_title %></h1>
+		<small><%= @level2.sub_title %></small>
+	</header>
+	<div class="content">
+
+    <div class="card-wrap">
+			<%= @level2.level3s.each do |level3| %>
+	      <section class="card-box">
+	        <h1><span><%= level3.title %></span><%= level3.sub_title %></h1>
+	        <div class="item-image">
+	          <img src="<%= level3.main_image %>" alt="" />
+	        </div>
+	        <div class="cont">
+						<%= level3.description %>
+	        </div>
+	        <div class="btn-group">
+	          <a href="<%='level3/' + level3.id %>" class="bt-large more">OVERVIEW</a>
+	        </div>
+	      </section>
+			<% end %>
+    </div>
+	<% if @level2.title.present? && @level2.description.present?%>
+    <div class="engine-exp">
+      <div class="item-image">
+        <img src="<%= @level2.main_image %>" alt="" />
+      </div>
+      <dl>
+        <dt><%= @level2.title %></dt>
+        <dd class="cont">
+        	<%= @level2.description %>
+        </dd>
+      </dl>
+    </div>
+	<% end %>
+	</div>
+</div>
