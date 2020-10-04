@@ -1,0 +1,111 @@
+<%= render "shared/header.html.erb", title: "level 3"%>
+
+<header class="header">
+	<h1 class="logo"><a href="/level0"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
+		<ul>
+      <li><a href="../level0">Lv 0</a></li>
+      <li><a href="../level1">Lv 1</a></li>
+			<li><a href="#">Lv 2</a></li>
+			<li class="on"><a href="#">Lv 3</a></li>
+			<li><a href="#">Lv 4</a></li>
+			<li><a href="#">Lv 5</a></li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-3">
+	<header class="content-title">
+		<h1><b><%= @level3.main_title %></b> <%= @level3.sub_title %></h1>
+		<small><%= @level3.title %></small>
+		<div class="btn-group">
+			<a href="#none" class="bt-large reverse more">OVERVIEW</a>
+			<a href="#none" class="bt-large reverse more">System benefits</a>
+		</div>
+    <div class="item-image"><img src="<%= @level3.main_image %>" alt="" /></div>
+	</header>
+	<div class="content">
+    <h2 class="slogan">
+      <b><%= @level3.slogan_first_row_first %></b>  <%= @level3.slogan_first_row_second %><br />
+      <b><%= @level3.slogan_second_row_first %></b> <%= @level3.slogan_second_row_second %> <br />
+      <b><%= @level3.slogan_third_row_first %></b> <%= @level3.slogan_third_row_second %><br />
+      <small><%= @level3.slogan_description %></small>
+    </h2>
+
+    <section class="packages">
+      <h1 class="title">Hyundai <b>Kefico’s</b> Packages</h1>
+      <!-- 통 이미지일 경우
+      <figure><img src="images/package-img.png" alt="" /></figure>
+      -->
+			  <div class="package-list">
+					<% @level3.packages.each do |package| %>
+						<a href="/level4/<%= package.level4_id %>">
+						  <figure>
+			          <img src="<%= package.image %>" alt="" />
+			          <figcaption><%= package.title %></figcaption>
+			        </figure>
+						</a>
+					<% end %>
+	      </div>
+    </section>
+
+    <section class="character">
+      <h1 class="title"><%= @level3.character_title %></h1>
+      <div class="char-1">
+        <!-- 통이미지 사용시 dl 삭제 -->
+        <div class="item-image"><img src="<%= @level3.characteristics %>" alt="" /></div>
+
+      </div>
+		<h1 class="title">OVERVIEW</h1>
+      <div class="char-2">
+        <figure><img src="<%= @level3.sub_image %>" alt="" /></figure>
+        <div class="exp">
+          <%=  simple_format(@level3.description) %>
+        </div>
+      </div>
+
+      <div class="char-3">
+				<% @level3.issues.each do |issue| %>
+	        <section class="char-box">
+	          <h3><%= issue.title %></h3>
+	          <div class="exp">
+							<%= simple_format(issue.description) %>
+	          </div>
+	        </section>
+				<% end %>
+      </div>
+    </section>
+
+    <section class="skill">
+      <h1 class="title"><%= @level3.skill_title %></h1>
+      <div class="skill-box">
+        <h2><%= @level3.skill_first_title %></h2>
+        <ul>
+					<% @level3.skill_firsts.each do |skill_first| %>
+	          <li>
+	            <figure>
+	              <img src="<%= skill_first.image %>" alt="" />
+	              <figcaption><%= skill_first.description %></figcaption>
+	            </figure>
+	            <a href="#none" class="bt-small more">more</a>
+	          </li>
+					<% end %>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+				<h2><%= @level3.skill_second_title %></h2>
+				<ul>
+					<% @level3.skill_seconds.each do |skill_second| %>
+						<li>
+							<figure>
+								<img src="<%= skill_second.image %>" alt="" />
+								<figcaption><%= skill_second.description %></figcaption>
+							</figure>
+							<a href="#none" class="bt-small more">more</a>
+						</li>
+					<% end %>
+				</ul>
+      </div>
+    </section>
+	</div>
+</div>

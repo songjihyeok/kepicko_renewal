@@ -1,0 +1,117 @@
+<%= render "shared/header.html.erb", title: "level 4"%>
+
+<header class="header">
+	<h1 class="logo"><a href="/level0"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
+		<ul>
+      <li><a href="../level0">Lv 0</a></li>
+      <li><a href="../level1">Lv 1</a></li>
+			<li><a href="#">Lv 2</a></li>
+			<li><a href="#">Lv 3</a></li>
+			<li class="on"><a href="#">Lv 4</a></li>
+			<li><a href="#">Lv 5</a></li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-1">
+	<header class="content-title">
+		<h1><b><%= @level4.main_title %></b> <%= @level4.sub_title %></h1>
+		<small><%= @level4.description %></small>
+		<div class="btn-group">
+			<a href="#none" class="bt-large reverse more">OVERVIEW</a>
+			<a href="#none" class="bt-large reverse more">Package Benefit</a>
+		</div>
+	</header>
+	<div class="content">
+
+		<!-- START :: 제품 목록 -->
+		<div class="item-list">
+			<div class="swiper-container item-thumbs">
+				<div class="swiper-wrapper">
+					<% @level4.products.each do |product| %>
+						<section class="swiper-slide">
+							<header>
+								<h1><%= product.title %></h1>
+								<%= link_to "제품 상세보기",level5_path(product.level5_id), class:"bt-base"%>
+							</header>
+							<div class="item-image"><img src="<%= product.image %>" alt="" /></div>
+						</section>
+					<% end %>
+				</div>
+				<div class="swiper-next"></div>
+				<div class="swiper-prev"></div>
+			</div>
+			<div class="swiper-container item-name">
+				<ul class="swiper-wrapper">
+					<% @level4.products.each do |product| %>
+						<li class="swiper-slide"><%= product.sub_title %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+		<!-- //END :: 제품 목록 -->
+
+		<!-- Package 특성 -->
+		<div class="package-box package01">
+			<h2 class="title"><%= @level4.character_title %></h2>
+			<div class="cont">
+				<!-- 통이미지 사용시 dl 삭제 -->
+				<div class="item-image"><img src="<%= @level4.character_image %>" alt="" /></div>
+			</div>
+		</div>
+		<!-- Package 소개 -->
+		<div class="package-box package02">
+			<div class="package-inner">
+				<small class="title-sub"><%= @level4.intro_title_small %></small>
+				<h2 class="title"><%= @level4.intro_title %></h2>
+				<div class="cont">
+					<%= @level4.introduction %>
+				</div>
+			</div>
+		</div>
+		<!-- Package 구성 -->
+		<div class="package-box package03">
+			<h2 class="title"><%= @level4.composition %></h2>
+			<div class="item-image"><img src="<%= @level4.composition_image %>" alt="" /></div>
+		</div>
+		<!-- 특장점 -->
+		<div class="package-box package04">
+			<h2 class="title"><%= @level4.perfomance_big %> <small><%= @level4.perfomance_small %></small></h2>
+			<div class="item-image"><img src="<%= @level4.perfomance_image %>" alt="" /></div>
+		</div>
+		<!-- 제어 상세 -->
+		<div class="package-box package05">
+			<h2 class="title"><%= @level4.control_big %> <small><%= @level4.control_small %></small></h2>
+			<div class="item-image"><img src="<%= @level4.control_image1 %>" alt="" /></div>
+			<div class="item-image"><img src="<%= @level4.control_image2 %>" alt="" /></div>
+			<div class="item-image"><img src="<%= @level4.control_image3 %>" alt="" /></div>
+			<div class="item-image"><img src="<%= @level4.control_image4 %>" alt="" /></div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var itemName = new Swiper('.item-name', {
+		spaceBetween:0,
+		slidesPerView:5,
+		//loop: true,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+	});
+	var itemThumbs = new Swiper('.item-thumbs', {
+		effect: 'fade',
+		fadeEffect: {
+    	crossFade: true
+  	},
+		//loop: true,
+		freeMode: true,
+		spaceBetween:0,
+		navigation: {
+			nextEl: '.swiper-next',
+			prevEl: '.swiper-prev',
+		},
+		thumbs: {
+			swiper: itemName
+		}
+  });
+</script>
