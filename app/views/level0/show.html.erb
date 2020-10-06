@@ -1,0 +1,78 @@
+<%= render "shared/header.html.erb", title: "hyundai kepico"%>
+
+<header class="header">
+	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
+		<ul>
+      <li class="on"><a href="level0">Lv 0</a></li>
+			<li><a href="#">Lv 1</a></li>
+			<li><a href="#">Lv 2</a></li>
+			<li><a href="#">Lv 3</a></li>
+			<li><a href="#">Lv 4</a></li>
+			<li><a href="#">Lv 5</a></li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-0">
+	<div class="content">
+    <header class="content-title">
+      <h1>Hyundai <b>KEFICO</b></h1>
+      <!-- 디자인에서 현대 하모니 폰트 사용
+        :: 해당 폰트 스타일 때문에 폰트 파일을 추가하는 건 효율이 떨어진다고 생각해서 최대한 비슷한 폰트로 구현
+        :: 디자인과 동일하게 진행하고 싶으면 아래 이미지 텍스트 사용하시면 됩니다
+      <h1><img src="images/title-hyundai-font.png" alt="Hyundai KEFICO" /></h1>
+      -->
+      <small><%= @level0.title %></small>
+    </header>
+    <div class="intro worth">
+      <div class="inner">
+        <dl class="worth-1">
+          <dt><%= @level0.first_title %></dt>
+          <dd>
+						<%= simple_format(@level0.first_description) %>
+          </dd>
+        </dl>
+        <dl class="worth-2">
+          <dt><%= @level0.second_title %></dt>
+          <dd>
+						<%= simple_format(@level0.second_description) %>
+          </dd>
+        </dl>
+        <dl class="worth-3">
+          <dt><%= @level0.third_title %></dt>
+          <dd>
+						<%= simple_format(@level0.third_description) %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="intro tech">
+      <div class="inner">
+				<% @level0.tech_intros.each do | tech_intro | %>
+	        <section class="tech-box">
+	          <div class="dv"><span></span></div>
+	          <h2><%= tech_intro.title %></h2>
+	          <figure><img src="<%= tech_intro.image %>" alt="" /></figure>
+	          <h3><%= tech_intro.sub_title %></h3>
+	          <div class="exp">
+	      			<%= simple_format(tech_intro.description) %>
+	          </div>
+	        </section>
+				<% end %>
+      </div>
+    </div>
+		<ul class="card-image">
+		 <% if @level0&.tech_components.present? %>
+			<% @level0&.tech_components.each do |tech_component| %>
+				<li>
+					<div class="inner">
+						<h4><%= tech_component.title %></h4>
+						<a href="../level1/<%= tech_component.level1_id %>" class="bt-small reverse more">OVERVIEW</a>
+					</div>
+					<img src="<%= tech_component.image %>" alt="" class="card-bg" />
+				</li>
+			<% end %>
+		<% end %>
+		</ul>
+	</div>
+</div>

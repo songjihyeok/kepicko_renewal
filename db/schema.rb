@@ -10,20 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_04_082458) do
+ActiveRecord::Schema.define(version: 2020_10_06_095559) do
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.integer "resource_id"
-    t.string "author_type"
-    t.integer "author_id"
+  create_table "components", force: :cascade do |t|
+    t.string "title"
+    t.string "image"
+    t.integer "level2_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+    t.integer "level1_id"
+    t.index ["level1_id"], name: "index_components_on_level1_id"
   end
 
   create_table "interviewers", force: :cascade do |t|
@@ -45,9 +41,14 @@ ActiveRecord::Schema.define(version: 2020_10_04_082458) do
 
   create_table "level0s", force: :cascade do |t|
     t.string "title"
-    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_title"
+    t.string "second_title"
+    t.string "third_title"
+    t.text "first_description"
+    t.text "second_description"
+    t.text "third_description"
   end
 
   create_table "level1s", force: :cascade do |t|
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_10_04_082458) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "main_description"
+    t.string "image"
   end
 
   create_table "level2s", force: :cascade do |t|
@@ -112,6 +115,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_082458) do
     t.string "control_image4"
     t.string "intro_title_small"
     t.string "description"
+    t.string "title"
   end
 
   create_table "level5s", force: :cascade do |t|
@@ -140,6 +144,7 @@ ActiveRecord::Schema.define(version: 2020_10_04_082458) do
     t.string "youtube_url"
     t.string "installation_small_title"
     t.string "description"
+    t.string "title"
   end
 
   create_table "packages", force: :cascade do |t|
@@ -189,6 +194,26 @@ ActiveRecord::Schema.define(version: 2020_10_04_082458) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "level2_id"
     t.index ["level2_id"], name: "index_systems_on_level2_id"
+  end
+
+  create_table "tech_components", force: :cascade do |t|
+    t.string "title"
+    t.string "image"
+    t.integer "level1_id"
+    t.integer "level0_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tech_intros", force: :cascade do |t|
+    t.string "title"
+    t.string "image"
+    t.string "sub_title"
+    t.text "description"
+    t.integer "level1_id"
+    t.integer "level0_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

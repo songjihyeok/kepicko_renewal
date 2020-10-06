@@ -1,0 +1,44 @@
+<%= render "shared/header.html.erb", title: "level 1"%>
+
+<header class="header">
+	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
+		<ul>
+      <li><a href="../level0/1">Lv 0</a></li>
+			<li class="on"><a href="#">Lv 1</a></li>
+			<li><a href="#">Lv 2</a></li>
+			<li><a href="#">Lv 3</a></li>
+			<li><a href="#">Lv 4</a></li>
+			<li><a href="#">Lv 5</a></li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-4">
+	<header class="content-title">
+		<h1><%= @level1.title %></h1>
+		<small><%= @level1.description %></small>
+	</header>
+	<div class="content">
+
+    <figure class="visual-top">
+      <img src="<%= @level1.image %>" alt="" />
+      <figcaption>
+    		<%= simple_format(@level1.main_description) %>
+      </figcaption>
+    </figure>
+
+    <ul class="card-image">
+		 <% if @level1&.components.present? %>
+			<% @level1&.components.each do |component| %>
+				<li>
+	        <div class="inner">
+	          <h4><%= component.title %></h4>
+	          <a href="../level2/<%= component.level2_id %>" class="bt-small reverse more">OVERVIEW</a>
+	        </div>
+	        <img src="<%= component.image %>" alt="" class="card-bg" />
+	      </li>
+			<% end %>
+		<% end %>
+    </ul>
+	</div>
+</div>

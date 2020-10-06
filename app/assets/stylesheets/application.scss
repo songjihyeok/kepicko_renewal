@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require select2
  */
 
 
@@ -1346,6 +1347,45 @@
       margin-top:3rem;
       font-size:2rem;
       color:#929292;
+    }
+  }
+  .card-image {
+    padding:0 3rem;
+    display:flex;
+    justify-content:center;
+    li {
+      margin-bottom: 3rem;
+      position:relative;
+      margin-left:1.9rem;
+      &:first-child {
+        margin-left:0;
+      }
+      .inner {
+        position:absolute;
+        top:0;
+        width:100%;
+        height:100%;
+        padding:0 2rem 1.8rem 2rem;
+        display:flex;
+        flex-direction:column;
+        &:before {
+          width:2px;
+          height:68%;
+          background:#fff;
+          display:block;
+          content:'';
+        }
+        h4 {
+          margin-top:1.1rem;
+          font-size:2rem;
+          color:#fff;
+          font-weight:500;
+        }
+        .bt-small {
+          width:100%;
+          margin-top:auto;
+        }
+      }
     }
   }
 }
