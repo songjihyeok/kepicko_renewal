@@ -4,7 +4,7 @@
 lock "~> 3.13.0"
 
 ## [나의 Rails 프로젝트 이름] 변수 설정
-set :application, "kepiko"
+set :application, "kepicko_renewal"
 # [Example] set :application, "test4674"
 
 ## [Rails 프로젝트가 저장된 Github] 변수 설정
