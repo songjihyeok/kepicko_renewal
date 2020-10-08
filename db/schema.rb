@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_095559) do
+ActiveRecord::Schema.define(version: 2020_10_08_105612) do
 
   create_table "components", force: :cascade do |t|
     t.string "title"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.text "first_description"
     t.text "second_description"
     t.text "third_description"
+    t.string "button"
   end
 
   create_table "level1s", force: :cascade do |t|
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "main_description"
     t.string "image"
+    t.string "button"
   end
 
   create_table "level2s", force: :cascade do |t|
@@ -91,6 +93,12 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.string "skill_title"
     t.string "skill_first_title"
     t.string "skill_second_title"
+    t.string "first_button"
+    t.string "second_button"
+    t.string "first_package_title"
+    t.string "bold_package_title"
+    t.string "second_package_title"
+    t.string "overview"
   end
 
   create_table "level4s", force: :cascade do |t|
@@ -116,6 +124,8 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.string "intro_title_small"
     t.string "description"
     t.string "title"
+    t.string "first_button"
+    t.string "second_button"
   end
 
   create_table "level5s", force: :cascade do |t|
@@ -145,6 +155,8 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.string "installation_small_title"
     t.string "description"
     t.string "title"
+    t.string "first_button"
+    t.string "second_button"
   end
 
   create_table "packages", force: :cascade do |t|
@@ -165,6 +177,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.integer "level5_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "button"
   end
 
   create_table "skill_firsts", force: :cascade do |t|
@@ -174,6 +187,8 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.integer "level3_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "button"
+    t.string "link"
   end
 
   create_table "skill_seconds", force: :cascade do |t|
@@ -183,6 +198,8 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.integer "level3_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "button"
+    t.string "link"
   end
 
   create_table "systems", force: :cascade do |t|
@@ -193,6 +210,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_095559) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "level2_id"
+    t.string "button"
     t.index ["level2_id"], name: "index_systems_on_level2_id"
   end
 

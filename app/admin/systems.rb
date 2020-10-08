@@ -34,12 +34,13 @@ ActiveAdmin.register System do
         row :title
         row :sub_title
         row :description
+        row :button
         row :level2_id do |level2|
           Level2.find(level2.level2_id).title
         end
       end
     end
 
-  permit_params :title,:description, :sub_title, :main_image, :level2_id
+  permit_params :title,:description, :sub_title, :main_image, :level2_id, :button
 
 end

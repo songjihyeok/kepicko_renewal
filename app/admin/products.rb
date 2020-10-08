@@ -28,10 +28,11 @@ ActiveAdmin.register Product do
       row :level5_id do |product|
         Level5.find(product.level5_id).title
       end
+      row :button
     end
   end
 
 
 
-  permit_params :title, :sub_title, :image, :level4_id, :level5_id
+  permit_params :title, :sub_title, :image, :level4_id, :level5_id, :button
 end

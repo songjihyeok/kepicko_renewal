@@ -18,8 +18,8 @@
 		<h1><b><%= @level3.main_title %></b> <%= @level3.sub_title %></h1>
 		<small><%= @level3.title %></small>
 		<div class="btn-group">
-			<a href="#none" class="bt-large reverse more">OVERVIEW</a>
-			<a href="#none" class="bt-large reverse more">System benefits</a>
+			<a href="#none" class="bt-large reverse more"><%= @level3.first_button %></a>
+			<a href="#none" class="bt-large reverse more"> <%= @level3.second_button %></a>
 		</div>
     <div class="item-image"><img src="<%= @level3.main_image %>" alt="" /></div>
 	</header>
@@ -32,7 +32,7 @@
     </h2>
 
     <section class="packages">
-      <h1 class="title">Hyundai <b>Kefico’s</b> Packages</h1>
+      <h1 class="title"><%= @level3.first_package_title %> <b><%= @level3.bold_package_title %></b><%= @level3.second_package_title %></h1>
       <!-- 통 이미지일 경우
       <figure><img src="images/package-img.png" alt="" /></figure>
       -->
@@ -55,7 +55,7 @@
         <div class="item-image"><img src="<%= @level3.characteristics %>" alt="" /></div>
 
       </div>
-		<h1 class="title">OVERVIEW</h1>
+		<h1 class="title"><%= @level3.overview %></h1>
       <div class="char-2">
         <figure><img src="<%= @level3.sub_image %>" alt="" /></figure>
         <div class="exp">
@@ -86,7 +86,7 @@
 	              <img src="<%= skill_first.image %>" alt="" />
 	              <figcaption><%= skill_first.description %></figcaption>
 	            </figure>
-	            <a href="#none" class="bt-small more">more</a>
+	            <a href="#none" class="bt-small more"><%= skill_first.button %></a>
 	          </li>
 					<% end %>
         </ul>
@@ -101,7 +101,7 @@
 								<img src="<%= skill_second.image %>" alt="" />
 								<figcaption><%= skill_second.description %></figcaption>
 							</figure>
-							<a href="#none" class="bt-small more">more</a>
+							<a href="#none" class="bt-small more"><%= skill_second.button %></a>
 						</li>
 					<% end %>
 				</ul>

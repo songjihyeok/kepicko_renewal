@@ -18,8 +18,8 @@
 		<h1><b><%= @level4.main_title %></b> <%= @level4.sub_title %></h1>
 		<small><%= @level4.description %></small>
 		<div class="btn-group">
-			<a href="#none" class="bt-large reverse more">OVERVIEW</a>
-			<a href="#none" class="bt-large reverse more">Package Benefit</a>
+			<a href="#none" class="bt-large reverse more"><%= @level4.first_button %></a>
+			<a href="#none" class="bt-large reverse more"><%= @level4.second_button %></a>
 		</div>
 	</header>
 	<div class="content">
@@ -32,7 +32,8 @@
 						<section class="swiper-slide">
 							<header>
 								<h1><%= product.title %></h1>
-								<%= link_to "제품 상세보기",level5_path(product.level5_id), class:"bt-base"%>
+								<% button_title = product.button.to_s %>
+								<%= link_to button_title, level5_path(product.level5_id), class:"bt-base"%>
 							</header>
 							<div class="item-image"><img src="<%= product.image %>" alt="" /></div>
 						</section>

@@ -23,10 +23,11 @@ ActiveAdmin.register SkillSecond do
       row :level3_id do |skill_second|
         Level3.find(skill_second.level3_id).title
       end
+      row :button
     end
   end
 
 
-  permit_params :title, :image, :description, :level3_id
+  permit_params :title, :image, :description, :level3_id, :button
 
 end

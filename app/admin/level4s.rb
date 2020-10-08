@@ -60,6 +60,8 @@ ActiveAdmin.register Level4 do
       row  :intro_title_small
       row  :description
       row  :title
+      row  :first_button
+      row  :second_button
     end
   end
 
@@ -72,5 +74,6 @@ ActiveAdmin.register Level4 do
   permit_params :main_title, :sub_title, :character_title, :character_image, :intro_title,
                 :introduction, :composition, :composition_image, :perfomance_big, :perfomance_small,
                 :perfomance_image, :control_big, :control_small, :control_image1,:control_image2,
-                :control_image3, :control_image4, :intro_title_small, :description, :title
+                :control_image3, :control_image4, :intro_title_small, :description, :title, :first_button,
+                :second_button
 end

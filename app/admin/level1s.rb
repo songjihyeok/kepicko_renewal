@@ -34,8 +34,9 @@ ActiveAdmin.register Level1 do
         row :title
         row :description
         row :main_description
+        row :button
       end
     end
 
- permit_params :title, :description, :main_description, :image
+ permit_params :title, :description, :main_description, :image, :button
 end
