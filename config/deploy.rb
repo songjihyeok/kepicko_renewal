@@ -1,7 +1,7 @@
 ## config/deploy.rb
 
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.13.0"
+lock "~> 3.14.1"
 
 ## [나의 Rails 프로젝트 이름] 변수 설정
 set :application, "kepicko_renewal"

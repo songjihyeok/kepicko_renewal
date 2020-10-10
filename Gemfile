@@ -32,7 +32,6 @@ gem 'jquery-rails'
 gem 'carrierwave', '~> 2.0'
 gem "select2-rails"
 gem 'figaro'
-gem 'figaro'
 gem 'pg'
 gem 'capistrano'
 gem 'capistrano-bundler'
