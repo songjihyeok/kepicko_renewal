@@ -16,7 +16,7 @@
 <div class="content-group level-0">
 	<div class="content">
     <header class="content-title">
-      <h1>Hyundai <b>KEFICO</b></h1>
+      <h1><%= @level0.name %> <b><%= @level0.bold_name %></b></h1>
       <!-- 디자인에서 현대 하모니 폰트 사용
         :: 해당 폰트 스타일 때문에 폰트 파일을 추가하는 건 효율이 떨어진다고 생각해서 최대한 비슷한 폰트로 구현
         :: 디자인과 동일하게 진행하고 싶으면 아래 이미지 텍스트 사용하시면 됩니다
@@ -48,6 +48,7 @@
     </div>
     <div class="intro tech">
       <div class="inner">
+			<% if @level0&.tech_intros.present? %>
 				<% @level0.tech_intros.each do | tech_intro | %>
 	        <section class="tech-box">
 	          <div class="dv"><span></span></div>
@@ -59,6 +60,7 @@
 	          </div>
 	        </section>
 				<% end %>
+			<% end %>
       </div>
     </div>
 		<ul class="card-image">
@@ -76,3 +78,7 @@
 		</ul>
 	</div>
 </div>
+<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
+<% end %>

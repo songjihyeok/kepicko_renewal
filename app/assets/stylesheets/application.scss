@@ -1678,3 +1678,119 @@
      margin-top:3rem !important;
    }
  }
+
+ @media (max-width:600px) {
+   html {
+     font-size:6px;
+   }
+   .wrapper {
+     .header {
+       .logo {
+         width:20rem;
+         margin-left:1.5rem;
+       }
+     }
+   }
+   .package-box {
+     &.package01 {
+       .item-image {
+         min-width:35rem;
+         max-width:35rem;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+       }
+     }
+     &.package02 {
+       .package-inner {
+         background:url("../images/package-intro-bg.png") center center no-repeat;
+         background-size:cover;
+       }
+       &:before,
+       &:after {
+         height:16vw;
+       }
+       .cont {
+         padding:1.6rem 0;
+       }
+     }
+   }
+   .feature-box {
+     &.feature05 {
+       padding-bottom:12rem;
+     }
+   }
+   .level-0 {
+     .intro {
+       .inner {
+         padding:4rem 3rem;
+       }
+     }
+     .worth {
+       dl {
+         width:100%;
+         padding-left:17rem;
+         &:before {
+           width:15rem;
+           height:15rem;
+         }
+       }
+     }
+   }
+   .level-3 {
+     .content {
+       padding:0 3rem 12rem 3rem;
+     }
+     .skill {
+       .skill-box {
+         ul {
+           figure {
+             figcaption {
+               min-height:8rem;
+             }
+           }
+         }
+       }
+     }
+   }
+   .level-4 {
+     .card-image li .inner:before {
+       width:1px;
+     }
+   }
+   .worth dl {
+     dd {
+       word-break:keep-all;
+     }
+     br {
+       display:none;
+     }
+   }
+ }
+
+ @media (max-width:360px) {
+   html {
+     font-size:5px;
+   }
+   .package-box {
+     &.package02 {
+       .package-inner {
+         padding:0 3rem;
+       }
+       .cont {
+         padding:1.2rem 0;
+       }
+     }
+   }
+ }
+
+ @media (max-width:321px) {
+   .wrapper {
+     .header {
+       .logo {
+         width:20rem;
+         margin-left:1.5rem;
+       }
+     }
+   }
+ }

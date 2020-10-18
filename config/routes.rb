@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/footer' => 'include#footer'
 
   resources 'home', only: [:index, :home]
+  resources 'navigation'
   resources 'level0'
   resources 'level1'
   resources 'level2'

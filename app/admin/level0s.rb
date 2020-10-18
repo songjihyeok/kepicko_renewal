@@ -28,5 +28,5 @@ ActiveAdmin.register Level0 do
 
 
    permit_params :title, :first_title, :first_description, :second_title, :second_description,
-  :third_title, :third_description, :button
+  :third_title, :third_description, :button, :name, :bold_name
 end
