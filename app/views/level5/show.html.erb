@@ -88,3 +88,14 @@
 		</div>
 	</div>
 </div>
+
+<script>
+
+	var width = $(window).width();
+	var height = $(window).height();
+	console.log(width)
+	if (width < 600){
+		$(".item-image").html('<iframe width="300px" height="300px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>')
+	}
+
+</script>
