@@ -1,4 +1,6 @@
 <%= render "shared/header.html.erb", title: "level 3"%>
+<% @level1_id ||= 1 %>
+<% @level2_id ||= 1 %>
 
 <header class="header">
 	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
@@ -51,11 +53,13 @@
       <h1 class="title"><%= @level3.character_title %></h1>
       <div class="char-1">
         <!-- 통이미지 사용시 dl 삭제 -->
-        <div class="item-image"><img src="<%= @level3.characteristics %>" alt="" /></div>
+        <div class="item-image" style="display:flex; justify-content:center">
+					<img src="<%= @level3.characteristics %>" alt="" />
+				</div>
 
       </div>
 		<h1 class="title"><%= @level3.overview %></h1>
-      <div class="char-2">
+      <div class="char-2" style="display:flex; justify-content:center" >
         <figure><img src="<%= @level3.sub_image %>" alt="" /></figure>
         <div class="exp">
           <%=  simple_format(@level3.description) %>
@@ -85,7 +89,7 @@
 	              <img src="<%= skill_first.image %>" alt="" />
 	              <figcaption><%= skill_first.description %></figcaption>
 	            </figure>
-	            <a href="#none" class="bt-small more"><%= skill_first.button %></a>
+	            <a href="<%= skill_first&.link %>" class="bt-small more"><%= skill_first.button %></a>
 	          </li>
 					<% end %>
         </ul>
@@ -100,7 +104,7 @@
 								<img src="<%= skill_second.image %>" alt="" />
 								<figcaption><%= skill_second.description %></figcaption>
 							</figure>
-							<a href="#none" class="bt-small more"><%= skill_second.button %></a>
+							<a href="<%= skill_second&.link %>" class="bt-small more"><%= skill_second.button %></a>
 						</li>
 					<% end %>
 				</ul>
