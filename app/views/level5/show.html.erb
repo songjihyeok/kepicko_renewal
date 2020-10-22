@@ -25,7 +25,7 @@
     <div class="feature-box feature01">
       <div class="item-image">
 				<% if @level5.flat_image.present? %>
-				  <img src="<%= interviewer.flat_image %>" alt="" />
+				  <img src="<%= @level5.flat_image %>" alt="" />
 				<% elsif  @level5.main_image.present? %>
   				<iframe width="500px" height="500px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>
 				<% end %>
@@ -48,14 +48,14 @@
     </div>
 		<div class="feature-box feature02" id="feature-index">
 			<h2 class="title"><%= @level5.installation %><small><%= @level5.installation_small_title %></small></h2>
-			<div class="cont" style="display:flex; justifycontent:center">
+			<div class="cont" style="display:flex; justify-content:center">
 				<img src="<%= @level5.installation_image %>" alt="" />
 			</div>
     </div>
 
 		<div class="feature-box feature03">
       <h2 class="title"><%= @level5.feature %><small><%= @level5.feature_small_title %></small></h2>
-      <div class="cont" style="display:flex; justifycontent:center">
+      <div class="cont" style="display:flex; justify-content:center">
 				<img src="<%= @level5.feature_image1 %>" alt="" />
 				<img src="<%= @level5.feature_image2 %>" alt="" />
 				<img src="<%= @level5.feature_image3 %>" alt="" />
@@ -83,16 +83,16 @@
 
 		<div class="feature-box feature05">
       <h2 class="title"><%= @level5.interview_title %></h2>
-      <div class="person">
 				<% if @level5.interviewers.present? %>
+					<div class="person">
 					<% @level5.interviewers.each do |interviewer| %>
 						<figure>
 							<img src="<%= interviewer.image %>" alt="" />
-							<figcaption><%= interviewer.position %> <b><%= interviewer.name %></b></figcaption>
+							<figcaption><%= interviewer.position %><br><b><%= interviewer.name %></b></figcaption>
 						</figure>
 					<% end %>
+					</div>
 				<% end %>
-      </div>
       <h3><%= @level5.interview_main_title %></h3>
       <div class="cont">
 				<%= simple_format(@level5.interview_detail) %>

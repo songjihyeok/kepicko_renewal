@@ -1,3 +1,17 @@
 // Place all the styles related to the level4 controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.package01, .package02{
+  .cont{
+    display:flex;
+    justify-content: center;
+  }
+}
+
+.package-box.package03{
+  .item-image{
+    margin-bottom: 30px;  
+  }
+}
