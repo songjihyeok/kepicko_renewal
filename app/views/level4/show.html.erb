@@ -71,9 +71,10 @@
 			</div>
 		</div>
 		<!-- Package 구성 -->
-		<div class="package-box package03" style="display:flex; justify-content:center">
+		<div class="package-box package03">
 			<h2 class="title"><%= @level4.composition %></h2>
-			<div class="item-image"><img src="<%= @level4.composition_image %>" alt="" /></div>
+			<div class="item-image" style="display:flex; justify-content:center">
+				<img src="<%= @level4.composition_image %>" alt="" /></div>
 		</div>
 		<!-- 특장점 -->
 		<% if @level4.perfomance_big.present? || @level4.perfomance_small.present? %>
