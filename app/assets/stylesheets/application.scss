@@ -16,7 +16,7 @@
  *= require level3
  *= require level4
  *= require level5
- 
+
  */
 
 
@@ -1795,6 +1795,41 @@
          width:20rem;
          margin-left:1.5rem;
        }
+     }
+   }
+ }
+
+
+ .package01, .package02{
+   .cont{
+     display:flex;
+     justify-content: center;
+   }
+ }
+
+ .package-box.package03{
+   .item-image{
+     margin-bottom: 30px;
+   }
+ }
+
+ .date{
+   white-space: pre;
+ }
+
+ .person{
+   figure{
+     justify-content: center;
+     display:flex;
+     align-items: center;
+   }
+ }
+
+ .character{
+   .char-2{
+     figure{
+       justify-content: center;
+       display: flex;
      }
    }
  }

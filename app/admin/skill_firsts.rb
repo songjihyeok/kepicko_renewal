@@ -30,6 +30,6 @@ ActiveAdmin.register SkillFirst do
 
 
 
-  permit_params :title,:image, :description, :level3_id, :button
+  permit_params :title,:image, :description, :level3_id, :button, :link
 
 end

@@ -28,6 +28,6 @@ ActiveAdmin.register SkillSecond do
   end
 
 
-  permit_params :title, :image, :description, :level3_id, :button
+  permit_params :title, :image, :description, :level3_id, :button, :link
 
 end
