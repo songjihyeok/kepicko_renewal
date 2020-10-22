@@ -4,12 +4,11 @@
 	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
 	<nav class="level">
 		<ul>
-      <li><a href="../level0/1">Lv 0</a></li>
-      <li><a href="#">Lv 1</a></li>
-			<li><a href="#">Lv 2</a></li>
-			<li class="on"><a href="#">Lv 3</a></li>
-			<li><a href="#">Lv 4</a></li>
-			<li><a href="#">Lv 5</a></li>
+			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
+			<li class="on level3_nav" ><a href="#">3级</a></li>
+			<li class="level4_nav"><a href="#" >4级</a></li>
+			<li class="level5_nav"><a href="#">5级</a></li>
 		</ul>
 	</nav>
 </header>
@@ -31,7 +30,7 @@
       <small><%= @level3.slogan_description %></small>
     </h2>
 
-    <section class="packages">
+    <section class="packages" id="package_index">
       <h1 class="title"><%= @level3.first_package_title %> <b><%= @level3.bold_package_title %></b><%= @level3.second_package_title %></h1>
       <!-- 통 이미지일 경우
       <figure><img src="images/package-img.png" alt="" /></figure>
@@ -109,3 +108,7 @@
     </section>
 	</div>
 </div>
+<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
+<% end %>

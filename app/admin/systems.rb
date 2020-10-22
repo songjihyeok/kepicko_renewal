@@ -41,6 +41,6 @@ ActiveAdmin.register System do
       end
     end
 
-  permit_params :title,:description, :sub_title, :main_image, :level2_id, :button
+  permit_params :title,:description, :sub_title, :main_image, :level2_id, :button, :level3_id
 
 end

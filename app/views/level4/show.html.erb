@@ -4,12 +4,11 @@
 	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
 	<nav class="level">
 		<ul>
-      <li><a href="../level0/1">Lv 0</a></li>
-      <li><a href="#">Lv 1</a></li>
-			<li><a href="#">Lv 2</a></li>
-			<li><a href="#">Lv 3</a></li>
-			<li class="on"><a href="#">Lv 4</a></li>
-			<li><a href="#">Lv 5</a></li>
+			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
+			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>3级<% end %></li>
+			<li class="on level4_nav"><a href="#">4级</a></li>
+			<li class="level5_nav"><a href="#">5级</a></li>
 		</ul>
 	</nav>
 </header>
@@ -18,12 +17,11 @@
 		<h1><b><%= @level4.main_title %></b> <%= @level4.sub_title %></h1>
 		<small><%= @level4.description %></small>
 		<div class="btn-group">
-			<a href="#none" class="bt-large reverse more"><%= @level4.first_button %></a>
-			<a href="#none" class="bt-large reverse more"><%= @level4.second_button %></a>
+			<a href="#introduction_index" class="bt-large reverse more"><%= @level4.first_button %></a>
+			<a href="#package_composition_index" class="bt-large reverse more"><%= @level4.second_button %></a>
 		</div>
 	</header>
 	<div class="content">
-
 		<!-- START :: 제품 목록 -->
 		<div class="item-list">
 			<div class="swiper-container item-thumbs">
@@ -51,9 +49,8 @@
 			</div>
 		</div>
 		<!-- //END :: 제품 목록 -->
-
 		<!-- Package 특성 -->
-		<div class="package-box package01">
+		<div class="package-box package01" id="introduction_index">
 			<h2 class="title"><%= @level4.character_title %></h2>
 			<div class="cont">
 				<!-- 통이미지 사용시 dl 삭제 -->
@@ -61,7 +58,7 @@
 			</div>
 		</div>
 		<!-- Package 소개 -->
-		<div class="package-box package02">
+		<div class="package-box package02" id="package_composition_index">
 			<div class="package-inner">
 				<small class="title-sub"><%= @level4.intro_title_small %></small>
 				<h2 class="title"><%= @level4.intro_title %></h2>
@@ -76,11 +73,14 @@
 			<div class="item-image"><img src="<%= @level4.composition_image %>" alt="" /></div>
 		</div>
 		<!-- 특장점 -->
+		<% if @level4.perfomance_big.present? || @level4.perfomance_small.present? %>
 		<div class="package-box package04">
 			<h2 class="title"><%= @level4.perfomance_big %> <small><%= @level4.perfomance_small %></small></h2>
 			<div class="item-image"><img src="<%= @level4.perfomance_image %>" alt="" /></div>
 		</div>
+		<% end %>
 		<!-- 제어 상세 -->
+		<% if @level4.control_big.present? || @level4.control_small.present? %>
 		<div class="package-box package05">
 			<h2 class="title"><%= @level4.control_big %> <small><%= @level4.control_small %></small></h2>
 			<div class="item-image"><img src="<%= @level4.control_image1 %>" alt="" /></div>
@@ -88,8 +88,13 @@
 			<div class="item-image"><img src="<%= @level4.control_image3 %>" alt="" /></div>
 			<div class="item-image"><img src="<%= @level4.control_image4 %>" alt="" /></div>
 		</div>
+		<% end %>
 	</div>
 </div>
+<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
+<% end %>
 
 <script>
 	var itemName = new Swiper('.item-name', {

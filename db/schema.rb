@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_072840) do
+ActiveRecord::Schema.define(version: 2020_10_19_103713) do
 
   create_table "components", force: :cascade do |t|
     t.string "title"
@@ -160,6 +160,9 @@ ActiveRecord::Schema.define(version: 2020_10_15_072840) do
     t.string "first_button"
     t.string "second_button"
     t.string "mobile_main_image"
+    t.string "flat_image"
+    t.string "customer_benefit_title"
+    t.string "customer_benefit_detail"
   end
 
   create_table "packages", force: :cascade do |t|
@@ -214,7 +217,9 @@ ActiveRecord::Schema.define(version: 2020_10_15_072840) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "level2_id"
     t.string "button"
+    t.integer "level3_id"
     t.index ["level2_id"], name: "index_systems_on_level2_id"
+    t.index ["level3_id"], name: "index_systems_on_level3_id"
   end
 
   create_table "tech_components", force: :cascade do |t|

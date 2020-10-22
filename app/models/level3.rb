@@ -6,4 +6,5 @@ class Level3 < ApplicationRecord
   has_many :skill_firsts
   has_many :skill_seconds
   has_many :packages
+  has_one :system
 end
