@@ -4,11 +4,11 @@
 	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
 	<nav class="level">
 		<ul>
-			<li class="on"><a href="#">1级</a></li>
-			<li><a href="#">2级</a></li>
-			<li><a href="#">3级</a></li>
-			<li><a href="#">4级</a></li>
-			<li><a href="#">5级</a></li>
+			<li class="level1_nav on"><a href="#">1级</a></li>
+			<li class="level2_nav"><a href="#">2级</a></li>
+			<li class="level3_nav" ><a href="#">3级</a></li>
+			<li class="level4_nav"><a href="#" >4级</a></li>
+			<li class="level5_nav"><a href="#">5级</a></li>
 		</ul>
 	</nav>
 </header>
@@ -41,3 +41,7 @@
     </ul>
 	</div>
 </div>
+<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
+<% end %>

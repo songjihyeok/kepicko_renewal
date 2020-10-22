@@ -4,12 +4,11 @@
 	<h1 class="logo"><a href="/level0"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
 	<nav class="level">
 		<ul>
-      <li><a href="../level0/1">Lv 0</a></li>
-      <li><a href="#">Lv 1</a></li>
-			<li><a href="#">Lv 2</a></li>
-			<li><a href="#">Lv 3</a></li>
-			<li><a href="#">Lv 4</a></li>
-			<li class="on"><a href="#">Lv 5</a></li>
+      <li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
+			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>3级<% end %></li>
+			<li class="level4_nav"><%= link_to level4_path(@level4_id) do %>4级<% end %></li>
+			<li class="on level5_nav"><a href="#">5级</a></li>
 		</ul>
 	</nav>
 </header>
@@ -18,28 +17,36 @@
 		<h1><b><%= @level5.main_title %></b> <%= @level5.sub_title %></h1>
 		<small><%= @level5.description %></small>
 		<div class="btn-group">
-			<a href="#none" class="bt-large reverse more"><%= @level5.first_button %></a>
-			<a href="#none" class="bt-large reverse more"><%= @level5.second_button %></a>
+			<a href="#installation-index" class="bt-large reverse more"><%= @level5.first_button %></a>
+			<a href="#feature-index" class="bt-large reverse more"><%= @level5.second_button %></a>
 		</div>
 	</header>
 	<div class="content">
-
     <div class="feature-box feature01">
       <div class="item-image">
-  			<iframe width="500px" height="500px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="keyword">
-				<%= simple_format(@level5.awards) %>
-      </div>
-      <div class="exp">
-				<%= simple_format(@level5.main_description) %>
-      </div>
-      <div class="date">
+				<% if @level5.flat_image.present? %>
+				  <img src="<%= interviewer.flat_image %>" alt="" />
+				<% elsif  @level5.main_image.present? %>
+  				<iframe width="500px" height="500px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>
+				<% end %>
+			</div>
+			<%if @level5.awards.present? %>
+	      <div class="keyword">
+					<%= simple_format(@level5.awards) %>
+	      </div>
+			<% end %>
+			<% if @level5.main_description.present? %>
+	      <div class="exp">
+					<%= simple_format(@level5.main_description) %>
+	      </div>
+			<% end %>
+			<% if @level5.date.present? %>
+      <div class="date" id="installation-index">
       	<p><%= @level5.date %></p>
       </div>
+			<% end %>
     </div>
-
-		<div class="feature-box feature02">
+		<div class="feature-box feature02" id="feature-index">
 			<h2 class="title"><%= @level5.installation %><small><%= @level5.installation_small_title %></small></h2>
 			<div class="cont">
 				<img src="<%= @level5.installation_image %>" alt="" />
@@ -59,6 +66,12 @@
 					<%= simple_format(@level5.performance_detail) %>
         </dd>
       </dl>
+			<dl>
+				<dt><%= @level5.customer_benefit_title %></dt>
+				<dd>
+					<%= simple_format(@level5.customer_benefit_detail) %>
+				</dd>
+			</dl>
     </div>
 
 		<div class="feature-box feature04">
@@ -71,30 +84,39 @@
 		<div class="feature-box feature05">
       <h2 class="title"><%= @level5.interview_title %></h2>
       <div class="person">
-				<% @level5.interviewers.each do |interviewer| %>
-					<figure>
-						<img src="<%= interviewer.image %>" alt="" />
-						<figcaption><%= interviewer.position %> <b><%= interviewer.name %></b></figcaption>
-					</figure>
+				<% if @level5.interviewers.present? %>
+					<% @level5.interviewers.each do |interviewer| %>
+						<figure>
+							<img src="<%= interviewer.image %>" alt="" />
+							<figcaption><%= interviewer.position %> <b><%= interviewer.name %></b></figcaption>
+						</figure>
+					<% end %>
 				<% end %>
       </div>
       <h3><%= @level5.interview_main_title %></h3>
       <div class="cont">
 				<%= simple_format(@level5.interview_detail) %>
       </div>
-      <div class="video-box">
-        <iframe width="100%" height="auto" src="<%= @level5.youtube_url %>" frameborder="0" allowfullscreen></iframe>
-      </div>
+			<%if @level5.youtube_url.present? %>
+	      <div class="video-box">
+	        <iframe width="100%" height="auto" src="<%= @level5.youtube_url %>" frameborder="0" allowfullscreen></iframe>
+	      </div>
+			<% end %>
 		</div>
 	</div>
 </div>
+<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
+<% end %>
 
 <script>
 
 	var width = $(window).width();
 	var height = $(window).height();
 	console.log(width)
-	if (width < 600){
+	var is_flat_image = <%= @level5.flat_image.blank? %>
+	if (width < 600 && is_flat_image){
 		$(".item-image").html('<iframe width="300px" height="300px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>')
 	}
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'level0#show'
+  root 'level1#index'
 
   get '/level0' => 'level0#index'
   get '/level1' => 'level1#index'
