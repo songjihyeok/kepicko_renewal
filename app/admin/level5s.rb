@@ -75,5 +75,6 @@ ActiveAdmin.register Level5 do
 
   permit_params :title, :description, :main_title, :sub_title, :main_image, :awards,:main_description, :date ,:installation, :installation_image, :feature ,:feature_small_title,:feature_image1,:feature_image2,:feature_image3 ,:performance_title, :performance_detail,
   :comparison_title, :comparison_image, :interview_title, :interview_main_title,
-  :interview_detail, :youtube_url, :installation_small_title, :description, :first_button, :second_button
+  :interview_detail, :youtube_url, :installation_small_title, :description, :first_button, :second_button, :flat_image,
+  :customer_benefit_title, :customer_benefit_detail
 end
