@@ -3,14 +3,40 @@
 <% @level2_id ||= 1 %>
 
 <header class="header">
-	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
-	<nav class="level">
+	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
 		<ul>
 			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
 			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
-			<li class="on level3_nav" ><a href="#">3级</a></li>
-			<li class="level4_nav"><a href="#" >4级</a></li>
-			<li class="level5_nav"><a href="#">5级</a></li>
+			<li class="level3_nav on">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					3级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level3s.each do |level3| %>
+							<%= link_to level3.title, level3_path(level3.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level4_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					4级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level4.each do |level4| %>
+							<%= link_to level4.title, level4_path(level4.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level5_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					5级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level5.each do |level5| %>
+							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
 		</ul>
 	</nav>
 </header>
@@ -19,8 +45,8 @@
 		<h1><b><%= @level3.main_title %></b> <%= @level3.sub_title %></h1>
 		<small><%= @level3.title %></small>
 		<div class="btn-group">
-			<a href="#none" class="bt-large reverse more"><%= @level3.first_button %></a>
-			<a href="#none" class="bt-large reverse more"> <%= @level3.second_button %></a>
+			<a href="#overview-index" class="bt-large reverse more"><%= @level3.first_button %></a>
+			<a href="#system-benifit" class="bt-large reverse more"> <%= @level3.second_button %></a>
 		</div>
     <div class="item-image"><img src="<%= @level3.main_image %>" alt="" /></div>
 	</header>
@@ -49,7 +75,7 @@
 	      </div>
     </section>
 
-    <section class="character">
+    <section class="character" id="overview-index">
       <h1 class="title"><%= @level3.character_title %></h1>
       <div class="char-1">
         <!-- 통이미지 사용시 dl 삭제 -->
@@ -59,13 +85,12 @@
 
       </div>
 		<h1 class="title"><%= @level3.overview %></h1>
-      <div class="char-2">
+      <div class="char-2" id="system-benifit">
         <figure style="display:flex; justify-content:center"><img src="<%= @level3.sub_image %>" alt="" /></figure>
         <div class="exp">
           <%=  simple_format(@level3.description) %>
         </div>
       </div>
-
       <div class="char-3">
 				<% @level3.issues.each do |issue| %>
 	        <section class="char-box">
@@ -112,7 +137,9 @@
     </section>
 	</div>
 </div>
-<%= link_to navigation_index_path, class: 'bt-nav' do %>
-	MENU
-	<span class="icon"><i>아이콘</i></span>
+<% if false %>
+	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+		MENU
+		<span class="icon"><i>아이콘</i></span>
+	<% end %>
 <% end %>
