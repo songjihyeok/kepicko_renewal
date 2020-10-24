@@ -31,7 +31,8 @@ gem 'activeadmin'
 gem 'jquery-rails'
 gem 'carrierwave', '~> 2.0'
 gem "select2-rails"
-
+gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'popper_js', '~> 1.14.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

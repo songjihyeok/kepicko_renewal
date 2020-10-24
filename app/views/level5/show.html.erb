@@ -6,14 +6,22 @@
 <% @level4_id ||= 1 %>
 
 <header class="header">
-	<h1 class="logo"><a href="/level0"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
-	<nav class="level">
+	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
 		<ul>
       <li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
 			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
 			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>3级<% end %></li>
 			<li class="level4_nav"><%= link_to level4_path(@level4_id) do %>4级<% end %></li>
-			<li class="on level5_nav"><a href="#">5级</a></li>
+			<li class="level5_nav on">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					5级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level5s.each do |level5| %>
+							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
 		</ul>
 	</nav>
 </header>
@@ -46,12 +54,12 @@
 	      </div>
 			<% end %>
 			<% if @level5.date.present? %>
-      <div class="date" id="installation-index">
+      <div class="date" id="feature-index">
       	<p><%= @level5.date %></p>
       </div>
 			<% end %>
     </div>
-		<div class="feature-box feature02" id="feature-index">
+		<div class="feature-box feature02" id="installation-index">
 			<h2 class="title"><%= @level5.installation %><small><%= @level5.installation_small_title %></small></h2>
 			<div class="cont" style="display:flex; justify-content:center">
 				<img src="<%= @level5.installation_image %>" alt="" />
@@ -60,7 +68,7 @@
 
 		<div class="feature-box feature03">
       <h2 class="title"><%= @level5.feature %><small><%= @level5.feature_small_title %></small></h2>
-      <div class="cont" style="display:flex; justify-content:center">
+      <div class="cont" style="display:flex; justify-content:center; margin-bottom:50px;">
 				<img src="<%= @level5.feature_image1 %>" alt="" />
 				<img src="<%= @level5.feature_image2 %>" alt="" />
 				<img src="<%= @level5.feature_image3 %>" alt="" />
@@ -91,7 +99,7 @@
 				<% if @level5.interviewers.present? %>
 					<div class="person">
 					<% @level5.interviewers.each do |interviewer| %>
-						<figure style="justify-content:center; display:flex;">
+						<figure style="justify-content:center; display:flex; flex-direction:column">
 							<img src="<%= interviewer.image %>" alt="" />
 							<figcaption><%= interviewer.position %><br><b><%= interviewer.name %></b></figcaption>
 						</figure>
@@ -110,11 +118,12 @@
 		</div>
 	</div>
 </div>
-<%= link_to navigation_index_path, class: 'bt-nav' do %>
-	MENU
-	<span class="icon"><i>아이콘</i></span>
+<% if false %>
+	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+		MENU
+		<span class="icon"><i>아이콘</i></span>
+	<% end %>
 <% end %>
-
 <script>
 
 	var width = $(window).width();
