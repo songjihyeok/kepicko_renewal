@@ -1,0 +1,85 @@
+<%= render "shared/header.html.erb", title: "level 2"%>
+
+<header class="header">
+	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
+		<ul>
+			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
+			<li class="level2_nav on">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">2级</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level2s.each do |level2| %>
+							<%= link_to level2.title, level2_path(level2.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level3_nav">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					3级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level3.each do |level3| %>
+							<%= link_to level3.title, level3_path(level3.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level4_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					4级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level4.each do |level4| %>
+							<%= link_to level4.title, level4_path(level4.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level5_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					5级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level5.each do |level5| %>
+							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-5">
+	<header class="content-title">
+		<h1><%= @level2.main_title %></h1>
+		<small><%= @level2.sub_title %></small>
+	</header>
+	<div class="content">
+
+    <div class="card-wrap">
+			<% @level2.systems.each do |system| %>
+	      <section class="card-box">
+	        <h1><span><%= system.title %></span> <%= system.sub_title %></h1>
+	        <div class="item-image">
+	          <img src="<%= system.main_image %>" alt="" />
+	        </div>
+	        <div class="cont">
+						<%= system.description %>
+	        </div>
+	        <div class="btn-group">
+	          <a href="<%='../level3/' + system.level3_id.to_s %>" class="bt-large more"><%= system.button %></a>
+	        </div>
+	      </section>
+			<% end %>
+    </div>
+	<% if @level2.title.present? && @level2.description.present?%>
+    <div class="engine-exp">
+      <div class="item-image">
+        <img src="<%= @level2.main_image %>" alt="" />
+      </div>
+      <dl>
+        <dt><%= @level2.title %></dt>
+        <dd class="cont">
+        	<%= @level2.description %>
+        </dd>
+      </dl>
+    </div>
+	<% end %>
+	</div>
+</div>

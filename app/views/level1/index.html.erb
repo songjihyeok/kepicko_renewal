@@ -1,0 +1,90 @@
+<%= render "shared/header.html.erb", title: "level 1"%>
+
+<header class="header">
+	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
+		<ul>
+			<li class="level1_nav on"><button href="#">1级</button></li>
+			<li class="level2_nav">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">2级</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level2.each do |level2| %>
+							<%= link_to level2.title, level2_path(level2.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level3_nav">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					3级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level3.each do |level3| %>
+							<%= link_to level3.title, level3_path(level3.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level4_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					4级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level4.each do |level4| %>
+							<%= link_to level4.title, level4_path(level4.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level5_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					5级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level5.each do |level5| %>
+							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-4">
+	<header class="content-title">
+		<h1><%= @level1.title %></h1>
+		<small><%= @level1.description %></small>
+	</header>
+	<div class="content">
+
+    <figure class="visual-top">
+      <img src="<%= @level1.image %>" alt="" />
+      <figcaption>
+    		<%= simple_format(@level1.main_description) %>
+      </figcaption>
+    </figure>
+
+    <ul class="card-image">
+		 <% if @level1&.components.present? %>
+			<% @level1&.components.each do |component| %>
+				<li>
+	        <div class="inner">
+	          <h4><%= component.title %></h4>
+	          <a href="../level2/<%= component.level2_id %>" class="bt-small reverse more"><%= @level1.button %></a>
+	        </div>
+	        <img src="<%= component.image %>" alt="" class="card-bg" />
+	      </li>
+			<% end %>
+		<% end %>
+    </ul>
+	</div>
+</div>
+<% if false %>
+	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+		MENU
+		<span class="icon"><i>아이콘</i></span>
+	<% end %>
+<% end %>
+
+
+<script>
+	$('#btn-id').click(function(e){
+    e.stopPropagation()
+	});
+</script>

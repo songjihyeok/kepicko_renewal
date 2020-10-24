@@ -1,0 +1,15 @@
+// Place all the styles related to the level5 controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.date{
+  white-space: pre;
+}
+
+.person{
+  figure{
+    justify-content: center;
+    display:flex;
+    align-items: center;
+  }
+}

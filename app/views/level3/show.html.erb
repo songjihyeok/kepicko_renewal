@@ -1,0 +1,145 @@
+<%= render "shared/header.html.erb", title: "level 3"%>
+<% @level1_id ||= 1 %>
+<% @level2_id ||= 1 %>
+
+<header class="header">
+	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
+		<ul>
+			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
+			<li class="level3_nav on">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					3级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level3s.each do |level3| %>
+							<%= link_to level3.title, level3_path(level3.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level4_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					4级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level4.each do |level4| %>
+							<%= link_to level4.title, level4_path(level4.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level5_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					5级
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level5.each do |level5| %>
+							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</header>
+<div class="content-group level-3">
+	<header class="content-title">
+		<h1><b><%= @level3.main_title %></b> <%= @level3.sub_title %></h1>
+		<small><%= @level3.title %></small>
+		<div class="btn-group">
+			<a href="#overview-index" class="bt-large reverse more"><%= @level3.first_button %></a>
+			<a href="#system-benifit" class="bt-large reverse more"> <%= @level3.second_button %></a>
+		</div>
+    <div class="item-image"><img src="<%= @level3.main_image %>" alt="" /></div>
+	</header>
+	<div class="content">
+    <h2 class="slogan">
+      <b><%= @level3.slogan_first_row_first %></b>  <%= @level3.slogan_first_row_second %><br />
+      <b><%= @level3.slogan_second_row_first %></b> <%= @level3.slogan_second_row_second %> <br />
+      <b><%= @level3.slogan_third_row_first %></b> <%= @level3.slogan_third_row_second %><br />
+      <small><%= @level3.slogan_description %></small>
+    </h2>
+
+    <section class="packages" id="package_index">
+      <h1 class="title"><%= @level3.first_package_title %> <b><%= @level3.bold_package_title %></b><%= @level3.second_package_title %></h1>
+      <!-- 통 이미지일 경우
+      <figure><img src="images/package-img.png" alt="" /></figure>
+      -->
+			  <div class="package-list">
+					<% @level3.packages.each do |package| %>
+						<a href="/level4/<%= package.level4_id %>">
+						  <figure>
+			          <img src="<%= package.image %>" alt="" />
+			          <figcaption><%= package.title %></figcaption>
+			        </figure>
+						</a>
+					<% end %>
+	      </div>
+    </section>
+
+    <section class="character" id="overview-index">
+      <h1 class="title"><%= @level3.character_title %></h1>
+      <div class="char-1">
+        <!-- 통이미지 사용시 dl 삭제 -->
+        <div class="item-image" style="display:flex; justify-content:center">
+					<img src="<%= @level3.characteristics %>" alt="" />
+				</div>
+
+      </div>
+		<h1 class="title"><%= @level3.overview %></h1>
+      <div class="char-2" id="system-benifit">
+        <figure style="display:flex; justify-content:center"><img src="<%= @level3.sub_image %>" alt="" /></figure>
+        <div class="exp">
+          <%=  simple_format(@level3.description) %>
+        </div>
+      </div>
+      <div class="char-3">
+				<% @level3.issues.each do |issue| %>
+	        <section class="char-box">
+	          <h3><%= issue.title %></h3>
+	          <div class="exp">
+							<%= simple_format(issue.description) %>
+	          </div>
+	        </section>
+				<% end %>
+      </div>
+    </section>
+
+    <section class="skill">
+      <h1 class="title"><%= @level3.skill_title %></h1>
+      <div class="skill-box">
+        <h2><%= @level3.skill_first_title %></h2>
+        <ul>
+					<% @level3.skill_firsts.each do |skill_first| %>
+	          <li>
+	            <figure>
+	              <img src="<%= skill_first.image %>" alt="" />
+	              <figcaption><%= skill_first.description %></figcaption>
+	            </figure>
+	            <a href="<%= skill_first&.link %>" class="bt-small more"><%= skill_first.button %></a>
+	          </li>
+					<% end %>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+				<h2><%= @level3.skill_second_title %></h2>
+				<ul>
+					<% @level3.skill_seconds.each do |skill_second| %>
+						<li>
+							<figure>
+								<img src="<%= skill_second.image %>" alt="" />
+								<figcaption><%= skill_second.description %></figcaption>
+							</figure>
+							<a href="<%= skill_second&.link %>" class="bt-small more"><%= skill_second.button %></a>
+						</li>
+					<% end %>
+				</ul>
+      </div>
+    </section>
+	</div>
+</div>
+<% if false %>
+	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+		MENU
+		<span class="icon"><i>아이콘</i></span>
+	<% end %>
+<% end %>
