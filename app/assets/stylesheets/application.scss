@@ -851,6 +851,41 @@
     height:100%;
   }
 }
+
+.wrapper .header .level ul li.on button{
+  color: #fff !important;
+  border-right: none;
+  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+}
+
+.wrapper .header .level ul li button {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    color: #B2B2B2;
+    font-weight: 700;
+    background: linear-gradient(#DEDEDE, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .header .level ul li a {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    color: #B2B2B2;
+    font-weight: 700;
+    background: linear-gradient(#DEDEDE, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// header-index
+
 .package-box {
   padding:0 4rem;
   .title {
