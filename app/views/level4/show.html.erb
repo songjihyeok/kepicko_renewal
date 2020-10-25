@@ -118,15 +118,12 @@
 		<span class="icon"><i>아이콘</i></span>
 	<% end %>
 <% end %>
+
 <style>
 	.wrapper .header .level ul li {
 		color: #fff !important;
 		border-right: none;
 		background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-		.dropdown-item {
-			background: white !important;
-			font-size: 20px !important;
-		 }
 	}
 
 	.wrapper .header .level ul li.on button{
@@ -149,20 +146,31 @@
 	}
 
 	.wrapper .header .level ul li a {
+			font-size: 15px;
 	    position: relative;
 	    height: 100%;
 	    width: 100%;
 	    padding: 10px;
 	    color: #B2B2B2;
 	    font-weight: 700;
-	    background: linear-gradient(#DEDEDE, #fff);
+   		background: white;
 	    display: flex;
 	    justify-content: center;
 	    align-items: center;
-			.dropdown-item {
-				background: white !important;
-				font-size: 20px !important;
-			 }
+	}
+
+	.wrapper .header .level ul li.on a {
+			font-size: 15px;
+			position: relative;
+			height: 100%;
+			width: 100%;
+			padding: 10px;
+			color: #B2B2B2;
+			font-weight: 700;
+			background: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 	}
 </style>
 
