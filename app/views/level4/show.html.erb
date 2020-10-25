@@ -51,7 +51,9 @@
 							<header>
 								<h1><%= product.title %></h1>
 								<% button_title = product.button.to_s %>
-								<%= link_to button_title, level5_path(product.level5_id), class:"bt-base"%>
+								<%= link_to level5_path(product.level5_id) do %>
+									<div class="bt-base"><%= button_title %></div>
+								<% end %>
 							</header>
 							<div class="item-image"><img src="<%= product.image %>" alt="" /></div>
 						</section>
@@ -174,6 +176,17 @@
 	.dropdown-item{
 		font-size: 15px;
 	}
+
+	.package01 .item-image{
+		max-width: 100% !important;
+		height: 100% !important;
+	}
+
+	.package03 {
+		padding-bottom: 30px;
+	}
+
+
 </style>
 
 <script>
