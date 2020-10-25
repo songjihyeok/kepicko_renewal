@@ -4,7 +4,7 @@
 	<h1 class="logo"><a href="../level1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
 	<nav class="level">
 		<ul>
-			<li class="level1_nav on"><button href="#">1级</button></li>
+			<li class="level1_nav on" style="background:black"><button href="#">1级</button></li>
 			<li class="level2_nav">
 				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">2级</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -82,7 +82,39 @@
 	<% end %>
 <% end %>
 
+<style>
+	.wrapper .header .level ul li.on button{
+	  color: #fff !important;
+	  border-right: none;
+	  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+	}
 
+	.wrapper .header .level ul li button {
+	    position: relative;
+	    height: 100%;
+	    width: 100%;
+	    padding: 10px;
+	    color: #B2B2B2;
+	    font-weight: 700;
+	    background: linear-gradient(#DEDEDE, #fff);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+
+	.wrapper .header .level ul li a {
+	    position: relative;
+	    height: 100%;
+	    width: 100%;
+	    padding: 10px;
+	    color: #B2B2B2;
+	    font-weight: 700;
+	    background: linear-gradient(#DEDEDE, #fff);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+</style>
 <script>
 	$('#btn-id').click(function(e){
     e.stopPropagation()
