@@ -83,3 +83,57 @@
 	<% end %>
 	</div>
 </div>
+
+<style>
+	.wrapper .header .level ul li {
+		color: #fff !important;
+		border-right: none;
+		background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+		.dropdown-item{
+			background: white;
+			font-size: 20px;
+		 }
+	}
+
+	.wrapper .header .level ul li.on button{
+	  color: #fff !important;
+	  border-right: none;
+	  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+		.dropdown-item{
+			background: white;
+			font-size: 20px;
+		 }
+	}
+
+	.wrapper .header .level ul li button {
+	    position: relative;
+	    height: 100%;
+	    width: 100%;
+	    padding: 10px;
+	    color: #B2B2B2;
+	    font-weight: 700;
+	    background: linear-gradient(#DEDEDE, #fff);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+
+	.wrapper .header .level ul li a {
+	    position: relative;
+	    height: 100%;
+	    width: 100%;
+	    padding: 10px;
+	    color: #B2B2B2;
+	    font-weight: 700;
+	    background: linear-gradient(#DEDEDE, #fff);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+</style>
+
+<script>
+	$('#btn-id').click(function(e){
+    e.stopPropagation()
+	});
+</script>

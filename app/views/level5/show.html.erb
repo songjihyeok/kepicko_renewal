@@ -124,8 +124,56 @@
 		<span class="icon"><i>아이콘</i></span>
 	<% end %>
 <% end %>
-<script>
 
+<style>
+	.wrapper .header .level ul li {
+		color: #fff !important;
+		border-right: none;
+		background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+		.dropdown-item{
+			background: white;
+			font-size: 20px;
+		 }
+	}
+
+	.wrapper .header .level ul li.on button{
+	  color: #fff !important;
+	  border-right: none;
+	  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+		.dropdown-item{
+			background: white;
+			font-size: 20px;
+		 }
+	}
+
+	.wrapper .header .level ul li button {
+	    position: relative;
+	    height: 100%;
+	    width: 100%;
+	    padding: 10px;
+	    color: #B2B2B2;
+	    font-weight: 700;
+	    background: linear-gradient(#DEDEDE, #fff);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+
+	.wrapper .header .level ul li a {
+	    position: relative;
+	    height: 100%;
+	    width: 100%;
+	    padding: 10px;
+	    color: #B2B2B2;
+	    font-weight: 700;
+	    background: linear-gradient(#DEDEDE, #fff);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+</style>
+
+<script>
 	var width = $(window).width();
 	var height = $(window).height();
 	console.log(width)
@@ -133,5 +181,9 @@
 	if (width < 600 && is_flat_image){
 		$(".item-image").html('<iframe width="300px" height="300px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>')
 	}
+
+	$('#btn-id').click(function(e){
+		e.stopPropagation()
+	});
 
 </script>
