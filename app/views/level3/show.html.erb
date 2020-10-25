@@ -64,7 +64,7 @@
       <figure><img src="images/package-img.png" alt="" /></figure>
       -->
 			  <div class="package-list">
-					<% @level3.packages.each do |package| %>
+					<% @level3.packages.order(:id).each do |package| %>
 						<a href="/level4/<%= package.level4_id %>">
 						  <figure>
 			          <img src="<%= package.image %>" alt="" />
@@ -86,7 +86,7 @@
       </div>
 		<h1 class="title"><%= @level3.overview %></h1>
       <div class="char-2" id="system-benifit">
-        <figure style="display:flex; justify-content:center"><img src="<%= @level3.sub_image %>" alt="" /></figure>
+        <figure style="display:flex; justify-content:center; padding:30px;"><img src="<%= @level3.sub_image %>" alt="" /></figure>
         <div class="exp">
           <%=  simple_format(@level3.description) %>
         </div>
@@ -108,7 +108,7 @@
       <div class="skill-box">
         <h2><%= @level3.skill_first_title %></h2>
         <ul>
-					<% @level3.skill_firsts.each do |skill_first| %>
+					<% @level3.skill_firsts.order(:id).each do |skill_first| %>
 	          <li>
 	            <figure>
 	              <img src="<%= skill_first.image %>" alt="" />
@@ -123,7 +123,7 @@
       <div class="skill-box">
 				<h2><%= @level3.skill_second_title %></h2>
 				<ul>
-					<% @level3.skill_seconds.each do |skill_second| %>
+					<% @level3.skill_seconds.order(:id).each do |skill_second| %>
 						<li>
 							<figure>
 								<img src="<%= skill_second.image %>" alt="" />
@@ -199,6 +199,10 @@
 	.dropdown-item{
 		font-size: 15px;
 	}
+	.level-3 .content small{
+		margin-top:10px;
+	}
+
 </style>
 
 <script>
