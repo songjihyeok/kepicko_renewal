@@ -290,7 +290,7 @@
  					&:last-child {
  						border-right:none;
  					}
- 					a {
+ 					button {
  						position:relative;
  						height:100%;
             width:100%;
@@ -312,28 +312,6 @@
  							content:'';
  						}
  					}
-          button {
-            position:relative;
-            height:100%;
-            width:100%;
-            padding:10px;
-            color:#B2B2B2;
-            font-weight:700;
-            background:linear-gradient(#DEDEDE, #fff);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            &:before {
-              position:absolute;
-              top:0;
-              left:0;
-              width:1px;
-              height:100%;
-              background:linear-gradient(#fff, transparent);
-              display:block;
-              content:'';
-            }
-          }
  					&.on {
  						button {
  							color:#fff;
@@ -1790,7 +1768,7 @@
        }
        &:before,
        &:after {
-         height:16vw;
+         height:14vw;
        }
        .cont {
          padding:1.6rem 0;
