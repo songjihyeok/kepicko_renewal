@@ -6,6 +6,9 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Kepicko"
 
+  config.before_action do
+    params.permit!
+  end
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -103,8 +106,6 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
-
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
   #
@@ -332,4 +333,10 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+  config.authentication_method = :authenticate_admin_user!
+  config.on_unauthorized_access = :access_denied
+  config.current_user_method = :current_admin_user
+  config.logout_link_path = :destroy_admin_user_session_path
+  config.batch_actions = true
+  config.localize_format = :long
 end
