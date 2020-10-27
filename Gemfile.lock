@@ -258,10 +258,9 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (1.8.1)
+    regexp_parser (1.8.2)
     request_store (1.5.0)
       rack (>= 1.4)
-    regexp_parser (1.8.2)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -336,10 +335,6 @@ DEPENDENCIES
   bootstrap (~> 5.0.0.alpha1)
   byebug
   cancancan
-  capybara (>= 2.15)
-  carrierwave (~> 2.0)
-  devise
-  draper
   capistrano
   capistrano-bundler
   capistrano-database-yml
@@ -350,6 +345,8 @@ DEPENDENCIES
   capistrano-rvm
   capybara (>= 2.15)
   carrierwave (~> 2.0)
+  devise
+  draper
   figaro
   jbuilder (~> 2.7)
   jquery-rails
