@@ -61,11 +61,21 @@
  	src: url('../fonts/dm-sans-v5-latin-700.woff2') format('woff2'),
  	url('../fonts/dm-sans-v5-latin-700.woff') format('woff');
  }
+
+ @font-face {
+  font-family:'SIMSUN';
+  font-style:normal;
+  font-weight:700;
+  src: url('../fonts/SIMSUN.ttf') format('ttf'),
+  url('../fonts/SIMSUN.ttf') format('woff');
+ }
+
+
  /* common reset style */
  * {
  	margin:0;
  	padding:0;
- 	font-family:'DM Sans','Noto Sans KR', sans-serif;
+ 	font-family:'SIMSUN', 'DM Sans','Noto Sans KR', sans-serif;
  	-webkit-font-smoothing:antialiased;
  	-moz-osx-font-smoothing:grayscale;
  	box-sizing:border-box;
