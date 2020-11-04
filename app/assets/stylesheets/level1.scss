@@ -1,3 +1,23 @@
 // Place all the styles related to the level1 controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.level-4 .content .visual-top{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.level-4 .content .visual-top img{
+  width: 80%;
+}
+
+.level-4 .content li {
+  width:308.67px !important;
+  height:613.3px !important;
+}
+.level-4 .content li img {
+  width: 100%;
+  height: 100%;
+}

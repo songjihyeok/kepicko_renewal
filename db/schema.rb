@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_142832) do
+ActiveRecord::Schema.define(version: 2020_11_04_120748) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 2020_10_26_142832) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "main_title"
     t.string "sub_title"
-    t.string "main_image"
     t.string "slogan_first_row_first"
     t.string "slogan_first_row_second"
     t.string "slogan_second_row_first"
@@ -102,8 +101,6 @@ ActiveRecord::Schema.define(version: 2020_10_26_142832) do
     t.string "slogan_third_row_second"
     t.string "slogan_description"
     t.string "character_title"
-    t.string "characteristics"
-    t.string "sub_image"
     t.string "skill_title"
     t.string "skill_first_title"
     t.string "skill_second_title"
@@ -113,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_142832) do
     t.string "bold_package_title"
     t.string "second_package_title"
     t.string "overview"
+    t.string "sub_description"
   end
 
   create_table "level4s", force: :cascade do |t|
@@ -121,20 +119,13 @@ ActiveRecord::Schema.define(version: 2020_10_26_142832) do
     t.string "main_title"
     t.string "sub_title"
     t.string "character_title"
-    t.string "character_image"
     t.string "intro_title"
     t.text "introduction"
     t.string "composition"
-    t.string "composition_image"
     t.string "perfomance_big"
     t.string "perfomance_small"
-    t.string "perfomance_image"
     t.string "control_big"
     t.string "control_small"
-    t.string "control_image1"
-    t.string "control_image2"
-    t.string "control_image3"
-    t.string "control_image4"
     t.string "intro_title_small"
     t.string "description"
     t.string "title"
@@ -152,16 +143,11 @@ ActiveRecord::Schema.define(version: 2020_10_26_142832) do
     t.text "main_description"
     t.text "date"
     t.string "installation"
-    t.string "installation_image"
     t.string "feature"
     t.string "feature_small_title"
-    t.string "feature_image1"
-    t.string "feature_image2"
-    t.string "feature_image3"
     t.string "performance_title"
     t.text "performance_detail"
     t.string "comparison_title"
-    t.string "comparison_image"
     t.string "interview_title"
     t.string "interview_main_title"
     t.text "interview_detail"
@@ -172,9 +158,107 @@ ActiveRecord::Schema.define(version: 2020_10_26_142832) do
     t.string "first_button"
     t.string "second_button"
     t.string "mobile_main_image"
-    t.string "flat_image"
     t.string "customer_benefit_title"
     t.text "customer_benefit_detail"
+  end
+
+  create_table "lv3_characteristic_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.integer "level3_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level3_id"], name: "index_lv3_characteristic_images_on_level3_id"
+  end
+
+  create_table "lv3_main_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.integer "level3_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level3_id"], name: "index_lv3_main_images_on_level3_id"
+  end
+
+  create_table "lv3_sub_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.integer "level3_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level3_id"], name: "index_lv3_sub_images_on_level3_id"
+  end
+
+  create_table "lv4_character_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.integer "level4_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level4_id"], name: "index_lv4_character_images_on_level4_id"
+  end
+
+  create_table "lv4_composition_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.integer "level4_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level4_id"], name: "index_lv4_composition_images_on_level4_id"
+  end
+
+  create_table "lv4_control_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.integer "level4_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level4_id"], name: "index_lv4_control_images_on_level4_id"
+  end
+
+  create_table "lv4_perfomance_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.integer "level4_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level4_id"], name: "index_lv4_perfomance_images_on_level4_id"
+  end
+
+  create_table "lv5_comparison_images", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "level5_id"
+    t.index ["level5_id"], name: "index_lv5_comparison_images_on_level5_id"
+  end
+
+  create_table "lv5_features", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "level5_id"
+    t.index ["level5_id"], name: "index_lv5_features_on_level5_id"
+  end
+
+  create_table "lv5_flatimages", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "level5_id"
+    t.index ["level5_id"], name: "index_lv5_flatimages_on_level5_id"
+  end
+
+  create_table "lv5_installations", force: :cascade do |t|
+    t.string "mainimage"
+    t.string "mobileimage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "level5_id"
+    t.index ["level5_id"], name: "index_lv5_installations_on_level5_id"
   end
 
   create_table "packages", force: :cascade do |t|

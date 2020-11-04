@@ -10,11 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
+ *= require_self
+ *= require_level0
+ *= require_level1
+ *= require_level2
+ *= require_level3
+ *= require_level4
+ *= require_level5
  */
 
  @import "bootstrap";
- 
+
  $colorPoint1 : #004B8D;
  $colorPoint2 : #003360;
 
@@ -1756,8 +1762,6 @@
 }
 
 
-
-
  .level-2{
    iframe{
      margin-top:3rem !important;
@@ -1913,4 +1917,56 @@
        display: flex;
      }
    }
+ }
+
+
+ .wrapper .header .level ul li {
+   color: #fff !important;
+   border-right: none;
+   background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+ }
+
+ .wrapper .header .level ul li.on button{
+   color: #fff !important;
+   border-right: none;
+   background: linear-gradient(#004B8D 80%, #002958 100%) !important;
+ }
+
+ .wrapper .header .level ul li button {
+     position: relative;
+     height: 100%;
+     width: 100%;
+     padding: 10px;
+     color: #B2B2B2;
+     font-weight: 700;
+     background: linear-gradient(#DEDEDE, #fff);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .wrapper .header .level ul li a {
+     position: relative;
+     height: 100%;
+     width: 100%;
+     padding: 10px;
+     color: #B2B2B2;
+     font-weight: 700;
+     background: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .wrapper .header .level ul li.on a {
+     position: relative;
+     height: 100%;
+     width: 100%;
+     padding: 10px;
+     color: #B2B2B2;
+     font-weight: 700;
+     background: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
  }
