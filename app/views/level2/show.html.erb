@@ -1,11 +1,13 @@
 <%= render "shared/header.html.erb", title: "level 2"%>
 
 <header class="header">
-	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
+	<h1 class="logo"><a href="../level0/0"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
 		<ul>
-			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
+			<li class="level0_nav"><%= link_to level0_path(0) do %>Lv 0<% end %></li>
+			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>Lv 1<% end %></li>
 			<li class="level2_nav on">
-				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">2级</button>
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">Lv 2</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level2s.each do |level2| %>
 							<%= link_to level2.title, level2_path(level2.id), class: "dropdown-item", id:"btn-id" %>
@@ -14,7 +16,7 @@
 			</li>
 			<li class="level3_nav">
 				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					3级
+					Lv 3
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level3.each do |level3| %>
@@ -24,7 +26,7 @@
 			</li>
 			<li class="level4_nav">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					4级
+					Lv 4
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level4.each do |level4| %>
@@ -34,7 +36,7 @@
 			</li>
 			<li class="level5_nav">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					5级
+					Lv 5
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level5.each do |level5| %>
@@ -84,62 +86,6 @@
 	</div>
 </div>
 
-
-<style>
-	.wrapper .header .level ul li {
-		color: #fff !important;
-		border-right: none;
-		background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li.on button{
-	  color: #fff !important;
-	  border-right: none;
-	  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li button {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-	    background: linear-gradient(#DEDEDE, #fff);
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li a {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-   		background: white;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li.on a {
-			position: relative;
-			height: 100%;
-			width: 100%;
-			padding: 10px;
-			color: #B2B2B2;
-			font-weight: 700;
-			background: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-	}
-	.dropdown-item{
-		font-size: 15px;
-	}
-</style>
 
 <script>
 	$('#btn-id').click(function(e){
