@@ -16,6 +16,18 @@ ActiveAdmin.register Interviewer do
   #   permitted
   # end
 
+  index do
+  selectable_column
+  id_column
+  column :image do |interviewer|
+    image_tag(interviewer.image.present? ? interviewer.image.url : "", class: "admin-show-image", height: 150, width: 150)
+  end
+  column :postion
+  column :name
+  actions
+  end
+
+
 
   show do
     attributes_table do

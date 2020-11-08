@@ -27,37 +27,16 @@ ActiveAdmin.register Level4 do
 
   show do
     attributes_table do
-      row :character_image do |level4|
-        image_tag(level4.character_image.present? ? level4.character_image.url : "", height: 150, width: 150)
-      end
       row :main_title
       row :sub_title
       row :character_title
       row :intro_title
       row :introduction
       row :composition
-      row :composition_image do |level4|
-        image_tag(level4.composition_image.present? ? level4.composition_image.url : "", height: 150, width: 150)
-      end
       row :perfomance_big
       row :perfomance_small
-      row :perfomance_image do |level4|
-        image_tag(level4.perfomance_image.present? ? level4.perfomance_image.url : "", height: 150, width: 150)
-      end
       row  :control_big
       row  :control_small
-      row  :control_image1 do |level4|
-        image_tag(level4.control_image1.present? ? level4.control_image1.url : "", height: 150, width: 150)
-      end
-      row  :control_image2 do
-          image_tag(level4.control_image2.present? ? level4.control_image2.url : "", height: 150, width: 150)
-      end
-      row  :control_image3 do
-          image_tag(level4.control_image3.present? ? level4.control_image3.url : "", height: 150, width: 150)
-      end
-      row  :control_image4 do
-          image_tag(level4.control_image4.present? ? level4.control_image4.url : "", height: 150, width: 150)
-      end
       row  :intro_title_small
       row  :description
       row  :title

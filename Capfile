@@ -36,7 +36,9 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 
 ## Capistrano ↔ Bundler
+
 ## * passenger require가 없으면 배포 후 Nginx Restart가 안된다.
+
 require "capistrano/passenger"
 
 ## Capistrano ↔ figaro

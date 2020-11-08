@@ -26,7 +26,7 @@
 					Lv 5
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					<% @level5.each do |level5| %>
+					<% @level5s.each do |level5| %>
 							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
 					<% end %>
 				</div>
@@ -135,13 +135,11 @@
 		<% end %>
 	</div>
 </div>
-<% if false %>
-	<%= link_to navigation_index_path, class: 'bt-nav' do %>
-		MENU
-		<span class="icon"><i>아이콘</i></span>
-	<% end %>
+<% current_route = request.original_url%>
+<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
 <% end %>
-
 
 <script>
 	$('#btn-id').click(function(e){

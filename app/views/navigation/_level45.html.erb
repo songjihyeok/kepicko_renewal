@@ -1,0 +1,19 @@
+<p class="go-menu"><span><b><%= link_to level3.title, level3_path(level3.id) %></b> 바로가기</span></p>
+<div class="nav-box show" id="menu1-1-1">
+  <h3 class="blind">GDI</h3>
+  <% level4s.each do |level4| %>
+    <section class="menu">
+      <header>
+        <h3><span><%= link_to level4.title, level4_path(level4.id) %></span></h3>
+        <button class="more">More</button>
+      </header>
+      <div class="submenu">
+        <ul>
+          <% level4.level5s.each do |level5| %>
+            <li><span><%= link_to level5.title, level5_path(level5.id) %></span></li>
+          <% end %>
+        </ul>
+      </div>
+    </section>
+  <% end %>
+</div>

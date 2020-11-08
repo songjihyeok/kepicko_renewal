@@ -6,4 +6,7 @@ class Level4 < ApplicationRecord
   has_many :lv4_control_images
   has_one :package
   has_many :products
+
+  has_many :level5s, :through => :products
+  has_many :level3s, :through => :package
 end

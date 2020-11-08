@@ -6,4 +6,6 @@ class Level5 < ApplicationRecord
   has_one :product
   has_many :interviewers
 
+  has_many :level4s, :through => :product
+
 end

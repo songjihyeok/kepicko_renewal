@@ -1,0 +1,8 @@
+<% level2s.each do |level2| %>
+  <h2><span><%= level2.title %></span></h2>
+  <ul>
+    <% level2.level3s.each do |level3| %>
+      <li><span data-1id="<%= @level1_id %>" data-3id= "<%= level3.id %>", class="level3_components"><%= level3.title %></span></li>
+    <% end %>
+  </ul>
+<% end %>
