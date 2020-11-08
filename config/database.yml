@@ -1,5 +1,6 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
+## config/database.yml
+## Database은 Environment에 따라 분리 시켜서 해주는게 가장 좋습니다.
+
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
