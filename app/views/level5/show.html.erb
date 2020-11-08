@@ -39,10 +39,10 @@
 	<div class="content">
     <div class="feature-box feature01">
       <div class="item-image">
-				<% if @level5.lv5_flatimages.present? %>
-				  <img src="<%= @level5.lv5_flatimages[0].mainimage %>" alt="" />
-				<% elsif  @level5.main_image.present? %>
-  				<iframe width="500px" height="500px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>
+				<% if @level5.main_image.present?  %>
+				  	<iframe width="500px" height="500px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>
+				<% else %>
+						 <img src="<%= @level5&.lv5_flatimages[0]&.mainimage %>" alt="" />
 				<% end %>
 			</div>
 			<%if @level5.awards.present? %>
@@ -134,21 +134,19 @@
 		</div>
 	</div>
 </div>
-<% if false %>
-	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	<% current_route = request.original_url%>
+	<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
 		MENU
 		<span class="icon"><i>아이콘</i></span>
 	<% end %>
-<% end %>
 
 
 <script>
 	var width = $(window).width();
 	var height = $(window).height();
 	console.log(width)
-	var is_flat_image = <%= @level5.lv5_flatimages.blank? %>
-	if (width < 600 && is_flat_image){
-		$(".item-image").html('<iframe width="300px" height="300px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>')
+	if (width < 600){
+		$(".item-image").html('<iframe width="300px" height="300px" src="<%= @level5.mobile_main_image %>" frameborder="0" allowfullscreen></iframe>')
 	}
 
 	$('#btn-id').click(function(e){

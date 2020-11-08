@@ -7,4 +7,7 @@ class Level3 < ApplicationRecord
   has_many :lv3_characteristic_images
   has_many :lv3_main_images
   has_many :lv3_sub_images
+
+  has_many :level4s, :through => :packages
+  has_many :level2s, :through => :system
 end

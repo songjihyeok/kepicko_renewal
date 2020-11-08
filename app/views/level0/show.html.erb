@@ -119,9 +119,8 @@
 		</ul>
 	</div>
 </div>
-<% if false %>
-	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	<% current_route = request.original_url%>
+	<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
 		MENU
 		<span class="icon"><i>아이콘</i></span>
 	<% end %>
-<% end %>

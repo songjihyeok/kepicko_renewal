@@ -1,0 +1,45 @@
+
+$(".nav-2nd").html("<%= j(render("navigation/level2", level2s: @level2s)) %>")
+$(".nav-3rd").html("<%= j(render("navigation/level45", level4s: @level4s, level3: @level3 )) %>")
+
+var level1 = $('.nav-1st');
+
+level1.find('li').each(function(){
+  var $this = $(this);
+    $this.click(function(){
+      var index = $(this).index();
+      level1.find('li').removeClass('active');
+      $(this).addClass('active');
+      var id = $this.data("id")
+      console.log( id )
+      $.ajax({
+        url: `/navigation/${id}`, // 클라이언트가 요청을 보낼 서버의 URL 주소
+        data: { level1_id : id },                // HTTP 요청과 함께 서버로 보낼 데이터
+        type: "PATCH",                    // HTTP 요청 방식(GET, POST)
+        dataType: "script"
+      })
+    });
+});
+
+$(".level3_components").click(function(){
+  var level3_id = $(this).data('3id');
+  var level1_id = $(this).data('1id');
+  console.log("level3_id", level3_id, "level1_id", level1_id )
+  $.ajax({
+    url: `/navigation/<%= @level1_id %>`, // 클라이언트가 요청을 보낼 서버의 URL 주소
+    data: { level3_id : level3_id, level1_id: level1_id },
+    type: "PATCH",
+    dataType: "script"
+  })
+});
+
+$('.menu').each(function(){
+  var more = $(this).find('.more');
+  if (!$(this).find('.submenu').length){
+    $(this).find('.more').hide();
+  }
+  more.click(function(){
+    $(this).parents('.nav-box').find('.menu').removeClass('show');
+    $(this).parents('.menu').addClass('show');
+  });
+});
