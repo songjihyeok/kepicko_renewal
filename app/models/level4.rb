@@ -1,12 +1,12 @@
 class Level4 < ApplicationRecord
-  mount_uploader :character_image, ImageUploader
-  mount_uploader :composition_image, ImageUploader
-  mount_uploader :perfomance_image, ImageUploader
-  mount_uploader :control_image1, ImageUploader
-  mount_uploader :control_image2, ImageUploader
-  mount_uploader :control_image3, ImageUploader
-  mount_uploader :control_image4, ImageUploader
 
+  has_many :lv4_character_images
+  has_many :lv4_composition_images
+  has_many :lv4_perfomance_images
+  has_many :lv4_control_images
   has_one :package
   has_many :products
+
+  has_many :level5s, :through => :products
+  has_many :level3s, :through => :package
 end

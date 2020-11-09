@@ -1,4 +1,5 @@
 ActiveAdmin.register Interviewer do
+  before_filter :skip_sidebar!, :only => :index
   menu parent: "level5"
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,6 +15,18 @@ ActiveAdmin.register Interviewer do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  index do
+  selectable_column
+  id_column
+  column :image do |interviewer|
+    image_tag(interviewer.image.present? ? interviewer.image.url : "", class: "admin-show-image", height: 150, width: 150)
+  end
+  column :postion
+  column :name
+  actions
+  end
+
 
 
   show do

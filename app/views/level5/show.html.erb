@@ -6,15 +6,17 @@
 <% @level4_id ||= 1 %>
 
 <header class="header">
-	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
+	<h1 class="logo"><a href="../level0/0"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
+		<nav class="level">
 		<ul>
-      <li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
-			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
-			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>3级<% end %></li>
-			<li class="level4_nav"><%= link_to level4_path(@level4_id) do %>4级<% end %></li>
+			<li class="level0_nav"><%= link_to level0_path(0) do %> Lv 0<% end %></li>
+      <li class="level1_nav"><%= link_to level1_path(@level1_id) do %>Lv 1<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>Lv 2<% end %></li>
+			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>Lv 3<% end %></li>
+			<li class="level4_nav"><%= link_to level4_path(@level4_id) do %>Lv 4<% end %></li>
 			<li class="level5_nav on">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					5级
+					Lv 5
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level5s.each do |level5| %>
@@ -37,10 +39,10 @@
 	<div class="content">
     <div class="feature-box feature01">
       <div class="item-image">
-				<% if @level5.flat_image.present? %>
-				  <img src="<%= @level5.flat_image %>" alt="" />
-				<% elsif  @level5.main_image.present? %>
-  				<iframe width="500px" height="500px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>
+				<% if @level5.main_image.present?  %>
+				  	<iframe width="500px" height="500px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>
+				<% else %>
+						 <img src="<%= @level5&.lv5_flatimages[0]&.mainimage %>" alt="" />
 				<% end %>
 			</div>
 			<%if @level5.awards.present? %>
@@ -62,33 +64,49 @@
 		<div class="feature-box feature02" id="installation-index">
 			<h2 class="title"><%= @level5.installation %><small><%= @level5.installation_small_title %></small></h2>
 			<div class="cont" style="display:flex; justify-content:center">
-				<img src="<%= @level5.installation_image %>" alt="" />
+				<% if @level5.lv5_installations.present? %>
+					<% @level5.lv5_installations.each do |image| %>
+      	  	<img src="<%= image.mainimage %>" alt="" />
+					<% end %>
+				<% end %>
 			</div>
     </div>
 
 		<div class="feature-box feature03">
       <h2 class="title"><%= @level5.feature %><small><%= @level5.feature_small_title %></small></h2>
       <div class="cont" style="display:flex; justify-content:center; margin-bottom:50px;">
-				<img src="<%= @level5.feature_image1 %>" alt="" />
+				<% if @level5.lv5_features.present? %>
+					<% @level5.lv5_features.each do |image| %>
+      	  	<img src="<%= image.mainimage %>" alt="" />
+					<% end %>
+				<% end %>
       </div>
-      <dl>
-        <dt><%= @level5.performance_title %></dt>
-        <dd>
-					<%= simple_format(@level5.performance_detail) %>
-        </dd>
-      </dl>
-			<dl>
-				<dt><%= @level5.customer_benefit_title %></dt>
-				<dd>
-					<%= simple_format(@level5.customer_benefit_detail) %>
-				</dd>
-			</dl>
+			<% if @level5.performance_title.present? %>
+	      <dl>
+	        <dt><%= @level5.performance_title %></dt>
+	        <dd>
+						<%= simple_format(@level5.performance_detail) %>
+	        </dd>
+	      </dl>
+			<% end %>
+			<% if @level5.customer_benefit_title.present? %>
+				<dl>
+					<dt><%= @level5.customer_benefit_title %></dt>
+					<dd>
+						<%= simple_format(@level5.customer_benefit_detail) %>
+					</dd>
+				</dl>
+			<% end %>
     </div>
 
 		<div class="feature-box feature04">
 			<h2 class="title"><%= @level5.comparison_title %></h2>
 			<div class="cont">
-        <img src="<%= @level5.comparison_image %>" alt="" />
+				<% if @level5.lv5_comparison_images.present? %>
+					<% @level5.lv5_comparison_images.each do |image| %>
+      	  	<img src="<%= image.mainimage %>" alt="" />
+					<% end %>
+				<% end %>
       </div>
     </div>
 
@@ -116,101 +134,19 @@
 		</div>
 	</div>
 </div>
-<% if false %>
-	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	<% current_route = request.original_url%>
+	<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
 		MENU
 		<span class="icon"><i>아이콘</i></span>
 	<% end %>
-<% end %>
 
-<style>
-	.wrapper .header .level ul li {
-		color: #fff !important;
-		border-right: none;
-		background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li.on button{
-	  color: #fff !important;
-	  border-right: none;
-	  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li button {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-	    background: linear-gradient(#DEDEDE, #fff);
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li a {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-   		background: white;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li.on a {
-			position: relative;
-			height: 100%;
-			width: 100%;
-			padding: 10px;
-			color: #B2B2B2;
-			font-weight: 700;
-			background: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-	}
-	.dropdown-item{
-		font-size: 15px;
-	}
-
-	.feature01 .item-image img{
-		margin-top: 0px;
-	 }
-
-	.feature03 .cont img{
-		width: 100%;
-	 }
-
-	.feature04 .cont{
-		display: flex;
-		justify-content: center;
-	 }
-
-	.feature04 .cont img{
-		width: 100%;
-	 }
-
-	 .feature05 .person figure{
-		align-items: center;
-  }
-	 .feature05 .person img{
-		width: 100px;
-	}
-
-</style>
 
 <script>
 	var width = $(window).width();
 	var height = $(window).height();
 	console.log(width)
-	var is_flat_image = <%= @level5.flat_image.blank? %>
-	if (width < 600 && is_flat_image){
-		$(".item-image").html('<iframe width="300px" height="300px" src="<%= @level5.main_image %>" frameborder="0" allowfullscreen></iframe>')
+	if (width < 600){
+		$(".item-image").html('<iframe width="300px" height="300px" src="<%= @level5.mobile_main_image %>" frameborder="0" allowfullscreen></iframe>')
 	}
 
 	$('#btn-id').click(function(e){

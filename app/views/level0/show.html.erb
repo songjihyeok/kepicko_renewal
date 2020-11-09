@@ -1,15 +1,56 @@
 <%= render "shared/header.html.erb", title: "hyundai kepico"%>
 
 <header class="header">
-	<h1 class="logo"><a href="../level0/1"><img src="https://s3.ap-northeast-2.amazonaws.com/www.fundinglab.ga/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<h1 class="logo"><a href="../level0/0"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
 	<nav class="level">
 		<ul>
-      <li class="on"><a href="level0">Lv 0</a></li>
-			<li><a href="#">Lv 1</a></li>
-			<li><a href="#">Lv 2</a></li>
-			<li><a href="#">Lv 3</a></li>
-			<li><a href="#">Lv 4</a></li>
-			<li><a href="#">Lv 5</a></li>
+      <li class="level0_nav on"><button href="level0">Lv 0</button></li>
+			<li class="level1_nav">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">Lv 1</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level1.each do |level1| %>
+							<%= link_to level1.title, level1_path(level1.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level2_nav">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">Lv 2</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level2.each do |level2| %>
+							<%= link_to level2.title, level2_path(level2.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level3_nav">
+				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					Lv 3
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level3.each do |level3| %>
+							<%= link_to level3.title, level3_path(level3.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level4_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					Lv 4
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level4.each do |level4| %>
+							<%= link_to level4.title, level4_path(level4.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
+			<li class="level5_nav">
+				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
+					Lv 5
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<% @level5.each do |level5| %>
+							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
+					<% end %>
+				</div>
+			</li>
 		</ul>
 	</nav>
 </header>
@@ -78,9 +119,8 @@
 		</ul>
 	</div>
 </div>
-<% if false %>
-	<%= link_to navigation_index_path, class: 'bt-nav' do %>
+	<% current_route = request.original_url%>
+	<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
 		MENU
 		<span class="icon"><i>아이콘</i></span>
 	<% end %>
-<% end %>

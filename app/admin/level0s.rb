@@ -1,4 +1,5 @@
 ActiveAdmin.register Level0 do
+  before_filter :skip_sidebar!, :only => :index
   menu parent: "level0"
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -23,6 +24,9 @@ ActiveAdmin.register Level0 do
 
   actions
   end
+
+
+
 
 
 

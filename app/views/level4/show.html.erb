@@ -4,14 +4,16 @@
 <% @level3_id ||= 1 %>
 
 <header class="header">
-	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
+	<h1 class="logo"><a href="../level0/0"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
 		<ul>
-			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
-			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
-			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>3级<% end %></li>
+			<li class="level0_nav"><%= link_to level0_path(0) do %>Lv 0<% end %></li>
+			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>Lv 1<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>Lv 2<% end %></li>
+			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>Lv 3<% end %></li>
 			<li class="level4_nav on">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					4级
+					Lv 4
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level4s.each do |level4| %>
@@ -21,10 +23,10 @@
 			</li>
 			<li class="level5_nav">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					5级
+					Lv 5
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					<% @level5.each do |level5| %>
+					<% @level5s.each do |level5| %>
 							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
 					<% end %>
 				</div>
@@ -76,7 +78,13 @@
 			<h2 class="title"><%= @level4.character_title %></h2>
 			<div class="cont" style="display:flex; justify-content:center">
 				<!-- 통이미지 사용시 dl 삭제 -->
-				<div class="item-image"><img src="<%= @level4.character_image %>" alt="" /></div>
+				<div class="item-image">
+					<% if @level4.lv4_character_images.present? %>
+						<% @level4.lv4_character_images.each do |image| %>
+							<img src="<%= image.mainimage %>" alt="" />
+						<% end %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<!-- Package 소개 -->
@@ -93,101 +101,45 @@
 		<div class="package-box package03">
 			<h2 class="title"><%= @level4.composition %></h2>
 			<div class="item-image" style="display:flex; justify-content:center">
-				<img src="<%= @level4.composition_image %>" alt="" /></div>
+				<% if @level4.lv4_composition_images.present? %>
+					<% @level4.lv4_composition_images.each do |image| %>
+						<img src="<%= image.mainimage %>" alt="" />
+					<% end %>
+				<% end %>
 		</div>
 		<!-- 특장점 -->
 		<% if @level4.perfomance_big.present? || @level4.perfomance_small.present? %>
 		<div class="package-box package04">
 			<h2 class="title"><%= @level4.perfomance_big %> <small><%= @level4.perfomance_small %></small></h2>
-			<div class="item-image"><img src="<%= @level4.perfomance_image %>" alt="" /></div>
+			<% if @level4.lv4_perfomance_images.present? %>
+				<% @level4.lv4_perfomance_images.each do |image| %>
+					<div class="item-image">
+						<img src="<%= image.mainimage %>" alt="" />
+					</div>
+				<% end %>
+			<% end %>
 		</div>
 		<% end %>
 		<!-- 제어 상세 -->
 		<% if @level4.control_big.present? || @level4.control_small.present? %>
 		<div class="package-box package05">
 			<h2 class="title"><%= @level4.control_big %> <small><%= @level4.control_small %></small></h2>
-			<div class="item-image"><img src="<%= @level4.control_image1 %>" alt="" /></div>
-			<div class="item-image"><img src="<%= @level4.control_image2 %>" alt="" /></div>
-			<div class="item-image"><img src="<%= @level4.control_image3 %>" alt="" /></div>
-			<div class="item-image"><img src="<%= @level4.control_image4 %>" alt="" /></div>
+			<% if @level4.lv4_control_images.present? %>
+				<% @level4.lv4_control_images.each do |image| %>
+					<div class="item-image">
+						<img src="<%= image.mainimage %>" alt="" />
+					</div>
+				<% end %>
+			<% end %>
 		</div>
 		<% end %>
 	</div>
 </div>
-<% if false %>
-	<%= link_to navigation_index_path, class: 'bt-nav' do %>
-		MENU
-		<span class="icon"><i>아이콘</i></span>
-	<% end %>
+<% current_route = request.original_url%>
+<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
 <% end %>
-
-<style>
-	.wrapper .header .level ul li {
-		color: #fff !important;
-		border-right: none;
-		background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li.on button{
-	  color: #fff !important;
-	  border-right: none;
-	  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li button {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-	    background: linear-gradient(#DEDEDE, #fff);
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li a {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-   		background: white;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li.on a {
-			position: relative;
-			height: 100%;
-			width: 100%;
-			padding: 10px;
-			color: #B2B2B2;
-			font-weight: 700;
-			background: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-	}
-
-	.dropdown-item{
-		font-size: 15px;
-	}
-
-	.package01 .item-image{
-		max-width: 100% !important;
-		height: 100% !important;
-	}
-
-	.package03 {
-		padding-bottom: 30px;
-	}
-
-
-</style>
 
 <script>
 	$('#btn-id').click(function(e){

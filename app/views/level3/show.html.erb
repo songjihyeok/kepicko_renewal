@@ -3,13 +3,15 @@
 <% @level2_id ||= 1 %>
 
 <header class="header">
-	<h1 class="logo"><a href="../level1/1"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
+	<h1 class="logo"><a href="../level0/0"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>
+	<nav class="level">
 		<ul>
-			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
-			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
+			<li class="level0_nav"><%= link_to level0_path(0) do %>Lv 0<% end %></li>
+			<li class="level1_nav"><%= link_to level1_path(@level1_id) do %>Lv 1<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>Lv 2<% end %></li>
 			<li class="level3_nav on">
 				<button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					3级
+					Lv 3
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level3s.each do |level3| %>
@@ -19,20 +21,20 @@
 			</li>
 			<li class="level4_nav">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					4级
+					Lv 4
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					<% @level4.each do |level4| %>
+					<% @level4s.each do |level4| %>
 							<%= link_to level4.title, level4_path(level4.id), class: "dropdown-item", id:"btn-id" %>
 					<% end %>
 				</div>
 			</li>
 			<li class="level5_nav">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					5级
+					Lv 5
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					<% @level5.each do |level5| %>
+					<% @level5s.each do |level5| %>
 							<%= link_to level5.title, level5_path(level5.id), class: "dropdown-item", id:"btn-id" %>
 					<% end %>
 				</div>
@@ -43,12 +45,18 @@
 <div class="content-group level-3">
 	<header class="content-title">
 		<h1><b><%= @level3.main_title %></b> <%= @level3.sub_title %></h1>
-		<small><%= @level3.title %></small>
+		<small><%= @level3.sub_description%></small>
 		<div class="btn-group">
 			<a href="#overview-index" class="bt-large reverse more"><%= @level3.first_button %></a>
 			<a href="#system-benifit" class="bt-large reverse more"> <%= @level3.second_button %></a>
 		</div>
-    <div class="item-image"><img src="<%= @level3.main_image %>" alt="" /></div>
+    <div class="item-image">
+			<% if @level3.lv3_main_images.present? %>
+				<% @level3.lv3_main_images.each do |image| %>
+					<img src="<%= image.mainimage %>" alt="" />
+				<% end %>
+			<% end %>
+    </div>
 	</header>
 	<div class="content">
     <h2 class="slogan">
@@ -80,13 +88,22 @@
       <div class="char-1">
         <!-- 통이미지 사용시 dl 삭제 -->
         <div class="item-image" style="display:flex; justify-content:center">
-					<img src="<%= @level3.characteristics %>" alt="" />
-				</div>
-
-      </div>
+					<% if @level3.lv3_characteristic_images.present? %>
+						<% @level3.lv3_characteristic_images.each do |image| %>
+							<img src="<%= image.mainimage %>" alt="" />
+						<% end %>
+					<% end %>
+		    </div>
+			</div>
 		<h1 class="title"><%= @level3.overview %></h1>
       <div class="char-2" id="system-benifit">
-        <figure style="display:flex; justify-content:center; padding:30px;"><img src="<%= @level3.sub_image %>" alt="" /></figure>
+        <figure style="display:flex; justify-content:center; padding:30px;">
+					<% if @level3.lv3_sub_images.present? %>
+						<% @level3.lv3_sub_images.each do |image| %>
+							<img src="<%= image.mainimage %>" alt="" />
+						<% end %>
+					<% end %>
+				</figure>
         <div class="exp">
           <%=  simple_format(@level3.description) %>
         </div>
@@ -137,73 +154,12 @@
     </section>
 	</div>
 </div>
-<% if false %>
-	<%= link_to navigation_index_path, class: 'bt-nav' do %>
-		MENU
-		<span class="icon"><i>아이콘</i></span>
-	<% end %>
+<% current_route = request.original_url%>
+<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
+	MENU
+	<span class="icon"><i>아이콘</i></span>
 <% end %>
 
-
-<style>
-	.wrapper .header .level ul li {
-		color: #fff !important;
-		border-right: none;
-		background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li.on button{
-	  color: #fff !important;
-	  border-right: none;
-	  background: linear-gradient(#004B8D 80%, #002958 100%) !important;
-	}
-
-	.wrapper .header .level ul li button {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-	    background: linear-gradient(#DEDEDE, #fff);
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li a {
-	    position: relative;
-	    height: 100%;
-	    width: 100%;
-	    padding: 10px;
-	    color: #B2B2B2;
-	    font-weight: 700;
-   		background: white;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	}
-
-	.wrapper .header .level ul li.on a {
-			position: relative;
-			height: 100%;
-			width: 100%;
-			padding: 10px;
-			color: #B2B2B2;
-			font-weight: 700;
-			background: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-	}
-	.dropdown-item{
-		font-size: 15px;
-	}
-	.level-3 .content small{
-		margin-top:10px;
-	}
-
-</style>
 
 <script>
 	$('#btn-id').click(function(e){

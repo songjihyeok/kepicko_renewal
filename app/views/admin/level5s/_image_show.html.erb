@@ -1,0 +1,38 @@
+<%= semantic_form_for [:admin, @level5], builder: ActiveAdmin::FormBuilder do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :title %>
+      <%=  f.input :description %>
+       <%= f.input :main_title %>
+       <%= f.input :sub_title %>
+       <%= f.input :first_button   %>
+       <%= f.input :second_button %>
+       <%= f.input :main_image %>
+       <%= image_tag(@level5.flat_image.present? ? @level5.flat_image&.url : "" ,class: "admin-show-image", width: 300, height:300) %>
+       <%= f.input :flat_image %>
+       <%= f.inputs :flat_image do %>
+        <% f.input :_destroy, as: :boolean, required: :false, label: 'Remove image' %>
+       <% end %>
+       <%= f.input :awards %>
+       <%= f.input :main_description %>
+       <%= f.input :date %>
+       <%= f.input :installation %>
+       <%= f.input :installation_small_title %>
+       <%= f.input :installation_image %>
+       <%= f.input :feature %>
+       <%= f.input :feature_small_title %>
+       <%= f.input :feature_image1 %>
+       <%= f.input :feature_image2 %>
+       <%= f.input :feature_image3 %>
+       <%= f.input :performance_title %>
+       <%= f.input :performance_detail %>
+       <%= f.input :customer_benefit_title %>
+       <%= f.input :customer_benefit_detail %>
+       <%= f.input :comparison_title %>
+       <%= f.input :comparison_image %>
+       <%=  f.input :interview_title %>
+       <%= f.input :interview_main_title %>
+       <%= f.input :interview_detail %>
+       <%= f.input :youtube_url %>
+    <% end %>
+    <%=  f.actions %>
+<% end %>
