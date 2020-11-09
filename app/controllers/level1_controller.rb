@@ -1,6 +1,7 @@
 class Level1Controller < ApplicationController
   def show
     @level1 = Level1.find(params[:id])
+    @level1s = Level1.all
     @level2s = @level1.level2s
     @level3s = []
     @level2s.uniq.each do |level2| @level3s.concat(level2.level3s) end
