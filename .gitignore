@@ -44,7 +44,4 @@ yarn-debug.log*
 .yarn-integrity
 
 
-/config/master.key
-/config/application.yml
-/config/database.yml
 Gemfile.lock
