@@ -9,14 +9,14 @@
 	<h1 class="logo"><a href="../level0/0"><img src="/images/logo.png" alt="HYUNDAI KEFICO" /></a></h1>	<nav class="level">
 		<nav class="level">
 		<ul>
-			<li class="level0_nav"><%= link_to level0_path(0) do %> Lv 0<% end %></li>
-      <li class="level1_nav"><%= link_to level1_path(@level1_id) do %>Lv 1<% end %></li>
-			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>Lv 2<% end %></li>
-			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>Lv 3<% end %></li>
-			<li class="level4_nav"><%= link_to level4_path(@level4_id) do %>Lv 4<% end %></li>
+			<li class="level0_nav"><%= link_to level0_path(0) do %> 0级<% end %></li>
+      <li class="level1_nav"><%= link_to level1_path(@level1_id) do %>1级<% end %></li>
+			<li class="level2_nav"><%= link_to level2_path(@level2_id) do %>2级<% end %></li>
+			<li class="level3_nav" ><%= link_to level3_path(@level3_id) do %>3级<% end %></li>
+			<li class="level4_nav"><%= link_to level4_path(@level4_id) do %>4级<% end %></li>
 			<li class="level5_nav on">
 				<button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="dropdownMenuLink">
-					Lv 5
+					5级
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level5s.each do |level5| %>
@@ -136,7 +136,7 @@
 </div>
 	<% current_route = request.original_url%>
 	<%= link_to navigation_index_path(current_route: current_route), class: 'bt-nav' do %>
-		MENU
+		菜单
 		<span class="icon"><i>아이콘</i></span>
 	<% end %>
 
