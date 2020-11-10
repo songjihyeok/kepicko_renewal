@@ -7,8 +7,7 @@
 # Ignore bundler config.
 /.bundle
 /node_modules
-
-
+.Gemfile.lock
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -42,3 +41,10 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+
+/config/master.key
+/config/application.yml
+/config/database.yml
+Gemfile.lock
+
