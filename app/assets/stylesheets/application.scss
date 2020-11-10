@@ -71,11 +71,18 @@
  	src: url('../fonts/dm-sans-v5-latin-700.woff2') format('woff2'),
  	url('../fonts/dm-sans-v5-latin-700.woff') format('woff');
  }
+ @font-face {
+   font-family:'SIMSUN';
+   font-style:normal;
+   font-weight:700;
+   src: url('../fonts/simsun.ttc') format('ttc'),
+   url('../fonts/simsun.ttc') format('ttc');
+ }
  /* common reset style */
  * {
  	margin:0;
  	padding:0;
- 	font-family:'DM Sans','Noto Sans KR', sans-serif;
+ 	font-family:'SIMSUN','DM Sans','Noto Sans KR', sans-serif;
  	-webkit-font-smoothing:antialiased;
  	-moz-osx-font-smoothing:grayscale;
  	box-sizing:border-box;
@@ -974,6 +981,7 @@
       text-transform:capitalize;
       b {
         font-size:13rem;
+        font-family:'noto sans Korea', sans-serif;
         color:$colorPoint1;
         font-weight:500;
       }
@@ -1425,11 +1433,11 @@
 .level-4 {
   padding-bottom:8rem;
   .visual-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-top:.6rem;
     figcaption {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding:3.5rem 0 9rem 0;
       font-size:2rem;
       color:#949494;
@@ -1495,9 +1503,11 @@
 
 
  .level-2{
-   iframe{
-     margin-top:3rem !important;
-     border-radius: 500px;
+   .feature01{
+     iframe{
+       margin-top:3rem !important;
+       border-radius: 500px;
+     }
    }
  }
 
