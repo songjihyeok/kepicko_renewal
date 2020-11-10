@@ -5,7 +5,7 @@
 	<nav class="level">
 		<ul>
 			<li class="level0_nav"><%= link_to level0_path(0) do %>0级<% end %></li>
-			<li class="level1_nav on" style="background:black"><button href="#">1级</button>
+			<li class="level1_nav on" style="background:black"><button href="#"class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink">1级</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					<% @level1s.each do |level1| %>
 							<%= link_to level1.title, level1_path(level1.id), class: "dropdown-item", id:"btn-id" %>
