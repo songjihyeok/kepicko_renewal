@@ -654,6 +654,7 @@
       align-items:center;
     }
     .item-image {
+      margin-top: 2rem;
       // min-width:43.5rem;
       // max-width:43.5rem;
       // height:38.6rem;
@@ -1566,6 +1567,19 @@
       }
     }
 
+    .level-0 {
+      .card-image {
+        img{
+          max-height: 200px!important;
+          max-width: 100px!important;
+        }
+        .inner {
+          max-height: 200px!important;
+          max-width: 100px!important;
+        }
+      }
+    }
+
    .wrapper {
      .header {
        .logo {
@@ -1578,7 +1592,7 @@
      &.package01 {
        .item-image {
          min-width:35rem;
-         max-width:35rem;
+         // max-width:35rem;
          display:flex;
          align-items:center;
          justify-content:center;
@@ -1587,7 +1601,7 @@
      &.package02 {
        .package-inner {
          background:url("../images/package-intro-bg.png") center center no-repeat;
-         background-size:cover;
+         // background-size:cover;
        }
        &:before,
        &:after {
