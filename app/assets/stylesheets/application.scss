@@ -1562,16 +1562,29 @@
       }
     }
 
+    .level-0 {
+      .card-image {
+        img{
+          max-height: 200px!important;
+          max-width: 100px!important;
+        }
+        .inner {
+          max-height: 200px!important;
+          max-width: 100px!important;
+        }
+      }
+    }
+
 
     .level-4 {
       .card-image {
         img{
-          max-height: 300px!important;
-          max-width: 150px!important;
+          max-height: 200px!important;
+          max-width: 100px!important;
         }
         .inner {
-          max-height: 300px!important;
-          max-width: 150px!important;
+          max-height: 200px!important;
+          max-width: 100px!important;
         }
       }
     }
@@ -1597,7 +1610,7 @@
      &.package02 {
        .package-inner {
          background:url("../images/package-intro-bg.png") center center no-repeat;
-         background-size:cover;
+         // background-size:cover;
        }
        &:before,
        &:after {
