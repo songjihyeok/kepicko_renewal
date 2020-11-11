@@ -1489,6 +1489,46 @@
        border-radius: 500px;
      }
    }
+   .date{
+     white-space: pre;
+   }
+
+   .person{
+     figure{
+       margin-right: 10px;
+       justify-content: center;
+       display:flex;
+       align-items: center;
+     }
+   }
+
+   .dropdown-item{
+     font-size: 15px;
+   }
+
+   .feature01 .item-image img{
+     margin-top: 0px;
+    }
+
+   .feature03 .cont img{
+     width: 100%;
+    }
+
+   .feature04 .cont{
+     display: flex;
+     justify-content: center;
+    }
+
+   .feature04 .cont img{
+     width: 100%;
+    }
+
+    .feature05 .person figure{
+     align-items: center;
+   }
+    .feature05 .person img{
+     width: 100px;
+   }
  }
 
  @media (max-width:600px) {
