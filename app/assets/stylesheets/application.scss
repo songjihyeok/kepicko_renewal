@@ -661,6 +661,7 @@
       align-items:center;
     }
     .item-image {
+      margin-top: 2rem;
       // min-width:43.5rem;
       // max-width:43.5rem;
       // height:38.6rem;
@@ -1601,7 +1602,7 @@
      &.package01 {
        .item-image {
          min-width:35rem;
-         max-width:35rem;
+         // max-width:35rem;
          display:flex;
          align-items:center;
          justify-content:center;
@@ -1614,7 +1615,7 @@
        }
        &:before,
        &:after {
-         height:16vw;
+         height:20vw;
        }
        .cont {
          padding:1.6rem 0;
