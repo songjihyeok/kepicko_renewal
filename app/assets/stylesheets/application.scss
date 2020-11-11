@@ -1566,6 +1566,19 @@
       }
     }
 
+    .level-0 {
+      .card-image {
+        img{
+          max-height: 200px!important;
+          max-width: 100px!important;
+        }
+        .inner {
+          max-height: 200px!important;
+          max-width: 100px!important;
+        }
+      }
+    }
+
    .wrapper {
      .header {
        .logo {
@@ -1587,7 +1600,7 @@
      &.package02 {
        .package-inner {
          background:url("../images/package-intro-bg.png") center center no-repeat;
-         background-size:cover;
+         // background-size:cover;
        }
        &:before,
        &:after {
