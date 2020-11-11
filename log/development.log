@@ -1,0 +1,412 @@
+  [1m[35m (618.2ms)[0m  [1m[35mCREATE DATABASE "kepico_development" ENCODING = 'utf8'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "kepico_development" ENCODING = 'utf8'[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1581516378750376110)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLevel0s (20201002062349)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "level0s" ("id" bigserial primary key, "title" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002062349"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLevel1s (20201002062356)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "level1s" ("id" bigserial primary key, "title" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002062356"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLevel2s (20201002062403)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "level2s" ("id" bigserial primary key, "title" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002062403"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLevel3s (20201002062408)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "level3s" ("id" bigserial primary key, "title" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002062408"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLevel4s (20201002062508)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "level4s" ("id" bigserial primary key, "title" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002062508"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLevel5s (20201002062514)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (115.8ms)[0m  [1m[35mCREATE TABLE "level5s" ("id" bigserial primary key, "title" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002062514"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSystems (20201002200027)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "systems" ("id" bigserial primary key, "title" character varying, "sub_title" character varying, "main_image" character varying, "description" text, "level2_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002200027"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToLevel2 (20201002200513)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level2s" ADD "main_title" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level2s" ADD "sub_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level2s" ADD "main_image" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201002200513"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20201003061213)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003061213"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsLevel3 (20201003092318)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level3s" ADD "main_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "sub_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "main_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "slogan_first_row_first" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "slogan_first_row_second" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "slogan_second_row_first" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "slogan_second_row_second" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "slogan_third_row_first" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "slogan_third_row_second" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "slogan_description" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "character_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "characteristics" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "sub_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "skill_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "skill_first_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "skill_second_title" character varying[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "packages" ("id" bigserial primary key, "image" character varying, "title" character varying, "level3_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "issues" ("id" bigserial primary key, "title" character varying, "description" text, "level3_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "skill_first" ("id" bigserial primary key, "title" character varying, "image" character varying, "description" text, "level3_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "skill_second" ("id" bigserial primary key, "title" character varying, "image" character varying, "description" text, "level3_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003092318"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeNameSkills (20201003100437)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "skill_first" RENAME TO "skill_firsts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "skill_first_pkey" RENAME TO "skill_firsts_pkey"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "public"."skill_first_id_seq" RENAME TO "skill_firsts_id_seq"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "skill_second" RENAME TO "skill_seconds"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "skill_second_pkey" RENAME TO "skill_seconds_pkey"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "public"."skill_second_id_seq" RENAME TO "skill_seconds_id_seq"[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003100437"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToPackage (20201003123758)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "packages" ADD "level4_id" bigint[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_packages_on_level4_id" ON "packages"  ("level4_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003123758"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToLevel4 (20201003124412)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level4s" ADD "main_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "sub_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "character_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "character_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "intro_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "introduction" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "composition" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "composition_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "perfomance_big" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "perfomance_small" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "perfomance_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "control_big" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "control_small" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level4s" ADD "control_image1" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "control_image2" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "control_image3" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "control_image4" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level4s" DROP COLUMN "description"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" DROP COLUMN "title"[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003124412"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTableProduct (20201003131603)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "sub_title" character varying, "image" character varying, "level4_id" integer, "level5_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level4s" ADD "intro_title_small" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003131603"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnDescriptionToLevel4 (20201003134922)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level4s" ADD "description" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003134922"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsLevel5 (20201003143543)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "main_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "sub_title" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "main_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "awards" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "main_description" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "date" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "installation" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "installation_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "feature" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "feature_small_title" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "feature_image1" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "feature_image2" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "feature_image3" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "performance_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "performance_detail" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "comparison_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "comparison_image" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "interview_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "interview_main_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "interview_detail" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "youtube_url" character varying[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "person" ("id" bigserial primary key, "image" character varying, "position" character varying, "name" character varying, "level5_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201003143543"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeletePersonAddTableInterviewer (20201004073754)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "person"[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "interviewer" ("id" bigserial primary key, "image" character varying, "position" character varying, "name" character varying, "level5_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201004073754"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeName (20201004074236)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "interviewer" RENAME TO "interviewers"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "interviewer_pkey" RENAME TO "interviewers_pkey"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "public"."interviewer_id_seq" RENAME TO "interviewers_id_seq"[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201004074236"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeTypeLevel5 (20201004080625)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "installation_small_title" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" DROP COLUMN "title"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" DROP COLUMN "description"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ALTER COLUMN "interview_detail" TYPE text[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201004080625"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnLevel5 (20201004082458)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "description" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201004082458"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddLevel1sRemoveComments (20201005130149)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "active_admin_comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level1s" ADD "main_description" text[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201005130149"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToLevel1 (20201006070032)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level1s" ADD "image" character varying[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "components" ("id" bigserial primary key, "title" character varying, "image" character varying, "level2_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201006070032"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddReferenceToCompoenent (20201006071216)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "components" ADD "level1_id" bigint[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_components_on_level1_id" ON "components"  ("level1_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201006071216"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsLevel0 (20201006075350)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level0s" ADD "first_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level0s" ADD "second_title" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level0s" ADD "third_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level0s" ADD "first_description" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level0s" ADD "secont_description" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level0s" ADD "third_description" text[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level0s" DROP COLUMN "description"[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "tech_intros" ("id" bigserial primary key, "title" character varying, "image" character varying, "sub_title" character varying, "description" text, "level1_id" integer, "level0_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "tech_components" ("id" bigserial primary key, "title" character varying, "image" character varying, "level1_id" integer, "level0_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201006075350"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnNameLevel0 (20201006081550)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level0s" RENAME COLUMN "secont_description" TO "second_description"[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201006081550"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTitleLevel5 (20201006094759)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "title" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201006094759"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTitleColumnToLevel4 (20201006095559)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level4s" ADD "title" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201006095559"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddButtomColumns (20201008103723)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level0s" ADD "button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level1s" ADD "button" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "systems" ADD "button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "first_button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "second_button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "first_package_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "bold_package_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "second_package_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "skill_firsts" ADD "button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "skill_firsts" ADD "link" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "skill_seconds" ADD "button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "skill_seconds" ADD "link" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level4s" ADD "first_button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level4s" ADD "second_button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "products" ADD "button" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "first_button" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "second_button" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201008103723"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnOverview (20201008105612)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level3s" ADD "overview" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201008105612"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddLevel1Name (20201013091533)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level1s" ADD "name" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level1s" ADD "bold_name" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ALTER COLUMN "date" TYPE text[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201013091533"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveNameAndAddNameToLevel0 (20201013093010)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level1s" DROP COLUMN "name"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level1s" DROP COLUMN "bold_name"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level0s" ADD "name" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level0s" ADD "bold_name" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201013093010"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnLevel5MobileMainImage (20201015072840)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "mobile_main_image" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201015072840"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-18 05:09:38.114530"], ["updated_at", "2020-10-18 05:09:38.114530"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1581516378750376110)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1581516378750376110)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1581516378750376110)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mLevel1 Load (1.0ms)[0m  [1m[34mSELECT "level1s".* FROM "level1s" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLevel0 Load (1.4ms)[0m  [1m[34mSELECT "level0s".* FROM "level0s" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLevel0 Create (1.1ms)[0m  [1m[32mINSERT INTO "level0s" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-10-18 06:50:33.501799"], ["updated_at", "2020-10-18 06:50:33.501799"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1581516378750376110)[0m
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnLevel5FlatImage (20201019083531)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.9ms)[0m  [1m[35mALTER TABLE "level5s" ADD "flat_image" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201019083531"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCustomerBenefitTitle (20201019092056)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "level5s" ADD "customer_benefit_title" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "level5s" ADD "customer_benefit_detail" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201019092056"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToSystem (20201019103713)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "systems" ADD "level3_id" bigint[0m
+  [1m[35m (18.8ms)[0m  [1m[35mCREATE  INDEX  "index_systems_on_level3_id" ON "systems"  ("level3_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201019103713"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1581516378750376110)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mLevel3 Load (1.0ms)[0m  [1m[34mSELECT "level3s".* FROM "level3s" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLevel4 Load (1.5ms)[0m  [1m[34mSELECT "level4s".* FROM "level4s" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLevel2 Load (1.0ms)[0m  [1m[34mSELECT "level2s".* FROM "level2s" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLevel1 Load (1.0ms)[0m  [1m[34mSELECT "level1s".* FROM "level1s" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLevel1 Load (0.8ms)[0m  [1m[34mSELECT "level1s".* FROM "level1s" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLevel2 Load (0.9ms)[0m  [1m[34mSELECT "level2s".* FROM "level2s" LIMIT $1[0m  [["LIMIT", 11]]
+DEPRECATION WARNING: Initialization autoloaded the constants ApplicationHelper, Level0Helper, Level1Helper, Level2Helper, Level3Helper, Level4Helper, Level5Helper, DeviseHelper, ApplicationController, InheritedResources::Base, DeviseController, Devise::SessionsController, Devise::PasswordsController, Devise::UnlocksController, Devise::RegistrationsController, Devise::ConfirmationsController, ActionText::ContentHelper, and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ApplicationHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <main> at /Users/jihyeoksong/greyzero/kepicko/config/environment.rb:5)
+DEPRECATION WARNING: Initialization autoloaded the constants ApplicationHelper, Level0Helper, Level1Helper, Level2Helper, Level3Helper, Level4Helper, Level5Helper, DeviseHelper, ApplicationController, InheritedResources::Base, DeviseController, Devise::SessionsController, Devise::PasswordsController, Devise::UnlocksController, Devise::RegistrationsController, Devise::ConfirmationsController, ActionText::ContentHelper, and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ApplicationHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <main> at /Users/jihyeoksong/greyzero/kepicko/config/environment.rb:5)
+Started GET "/" for ::1 at 2020-10-27 16:21:21 +0900
+  
+PG::ConnectionBad (FATAL:  role "admin" does not exist
+):
+  
+pg (1.2.3) lib/pg.rb:58:in `initialize'
+pg (1.2.3) lib/pg.rb:58:in `new'
+pg (1.2.3) lib/pg.rb:58:in `connect'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+request_store (1.5.0) lib/request_store/middleware.rb:19:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+DEPRECATION WARNING: Initialization autoloaded the constants ApplicationHelper, Level0Helper, Level1Helper, Level2Helper, Level3Helper, Level4Helper, Level5Helper, DeviseHelper, ApplicationController, InheritedResources::Base, DeviseController, Devise::SessionsController, Devise::PasswordsController, Devise::UnlocksController, Devise::RegistrationsController, Devise::ConfirmationsController, ActionText::ContentHelper, and ActionText::TagHelper.
+
+Being able to do this is deprecated. Autoloading during initialization is going
+to be an error condition in future versions of Rails.
+
+Reloading does not reboot the application, and therefore code executed during
+initialization does not run again. So, if you reload ApplicationHelper, for example,
+the expected changes won't be reflected in that stale Module object.
+
+These autoloaded constants have been unloaded.
+
+Please, check the "Autoloading and Reloading Constants" guide for solutions.
+ (called from <main> at /Users/jihyeoksong/greyzero/kepicko/config/environment.rb:5)

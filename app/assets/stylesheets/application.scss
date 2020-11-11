@@ -71,6 +71,7 @@
  	src: url('../fonts/dm-sans-v5-latin-700.woff2') format('woff2'),
  	url('../fonts/dm-sans-v5-latin-700.woff') format('woff');
  }
+
  @font-face {
    font-family:'SIMSUN';
    font-style:normal;
@@ -78,6 +79,7 @@
    src: url('../fonts/simsun.ttc') format('ttc'),
    url('../fonts/simsun.ttc') format('ttc');
  }
+
  /* common reset style */
  * {
  	margin:0;
@@ -307,7 +309,7 @@
  					&:last-child {
  						border-right:none;
  					}
- 					a {
+ 					button {
  						position:relative;
  						height:100%;
             width:100%;
@@ -329,28 +331,6 @@
  							content:'';
  						}
  					}
-          button {
-            position:relative;
-            height:100%;
-            width:100%;
-            padding:10px;
-            color:#B2B2B2;
-            font-weight:700;
-            background:linear-gradient(#DEDEDE, #fff);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            &:before {
-              position:absolute;
-              top:0;
-              left:0;
-              width:1px;
-              height:100%;
-              background:linear-gradient(#fff, transparent);
-              display:block;
-              content:'';
-            }
-          }
  					&.on {
  						button {
  							color:#fff;
