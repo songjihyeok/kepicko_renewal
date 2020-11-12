@@ -1417,15 +1417,12 @@
             width:51%;
           }
           figcaption {
-            min-height:5rem;
+            height: 10rem;
             margin-top:2.6rem;
             text-transform:uppercase;
             display:flex;
             align-items:center;
           }
-        }
-        .bt-small {
-          margin-top:2rem;
         }
       }
     }
@@ -1457,12 +1454,12 @@
         margin-left:0;
       }
       img{
-        max-height: 613.38px;
-        max-width: 308.67px;
+        max-height: 450px;
+        max-width: 250px;
       }
       .inner {
-        max-height: 613.38px;
-        max-width: 308.67px;
+        max-height: 450px;
+        max-width: 250px;
         height: 100%;
         width: 100%;
         position:absolute;
