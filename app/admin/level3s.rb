@@ -29,6 +29,7 @@ ActiveAdmin.register Level3 do
     attributes_table do
       row :title
       row :description
+      row :sub_description
       row :main_title
       row :sub_title
       row :slogan_first_row_first
@@ -50,6 +51,34 @@ ActiveAdmin.register Level3 do
     end
   end
 
+  form do |f|
+
+    f.inputs do
+      f.input :title
+      f.input :description
+      f.input :sub_description
+      f.input :main_title
+      f.input :sub_title
+      f.input :slogan_first_row_first
+      f.input :slogan_first_row_second
+      f.input :slogan_second_row_first
+      f.input :slogan_second_row_second
+      f.input :slogan_third_row_first
+      f.input :slogan_third_row_second
+      f.input :slogan_description
+      f.input :character_title
+      f.input :skill_title
+      f.input :skill_first_title
+      f.input :skill_second_title
+      f.input :first_button
+      f.input :second_button
+      f.input :first_package_title
+      f.input :bold_package_title
+      f.input :second_package_title
+      f.input :overview
+    end
+    f.actions
+  end
 
 
 
