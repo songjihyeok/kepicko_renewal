@@ -9,9 +9,9 @@ class AddButtomColumns < ActiveRecord::Migration[6.0]
     add_column :level3s, :bold_package_title, :string
     add_column :level3s, :second_package_title, :string
     add_column :skill_firsts, :button, :string
-    add_column :skill_firsts, :link, :string
+    # add_column :skill_firsts, :link, :string
     add_column :skill_seconds, :button, :string
-    add_column :skill_seconds, :link, :string
+    # add_column :skill_seconds, :link, :string
     add_column :level4s, :first_button, :string
     add_column :level4s, :second_button, :string
     add_column :products, :button, :string
