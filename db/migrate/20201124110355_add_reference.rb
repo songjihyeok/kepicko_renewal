@@ -5,4 +5,5 @@ class AddReference < ActiveRecord::Migration[6.0]
         # add_reference :skill_firsts, :level4, index: true
         # add_reference :skill_seconds, :level4, index: true
   end
+
 end
