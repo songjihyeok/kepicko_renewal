@@ -2081,7 +2081,14 @@
  }
 
 
- .level-0 .card-image li img {
-  min-width: 295px;
-  min-height: 586px;
+ .level-0 .card-image li {
+
+  .inner{
+    max-width: 287px;
+    min-height: 587px;
+  }
+ img {
+  min-width: 287px;
+  min-height: 587px;
+ }
 }
