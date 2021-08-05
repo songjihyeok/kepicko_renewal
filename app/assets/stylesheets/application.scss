@@ -1578,7 +1578,7 @@
       .card-image {
         img{
           max-height: 200px!important;
-          max-width: 100px!important;
+          max-width: 100px!important;        
         }
         .inner {
           max-height: 200px!important;
@@ -2079,3 +2079,9 @@
  		}
  	}
  }
+
+
+ .level-0 .card-image li img {
+  min-width: 295px;
+  min-height: 586px;
+}
